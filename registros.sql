@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2022 a las 17:32:19
+-- Tiempo de generación: 15-01-2022 a las 18:54:45
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -47,7 +47,8 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`id`, `Ape_Paterno`, `Ape_Materno`, `Nombres`, `Tel`, `Matricula`, `Email_Per`, `Email`, `No_SS`, `Direccion`, `ID_Procesos`, `ID_Carrera`) VALUES
-(51, 'Hoil', 'Chan', 'Ruben Eliezer', '9983564512', '201800064', 'ruben@live.com', '201800064@eatudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 1, 4);
+(51, 'Hoil', 'Chan', 'Ruben Eliezer', '9983564512', '201800064', 'ruben@live.com', '201800064@eatudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 1, 4),
+(111, 'Chan', 'Hoil', 'Ruben', '9988906245', '201800226', 'ruben@live.com', '201800064@estudiantes.upqroo.edu.mx', '48152362482', 'Calle 46 Manzana 36 Lote 14 Región 102', 3, 4);
 
 -- --------------------------------------------------------
 
@@ -67,6 +68,13 @@ CREATE TABLE `asesor_academico` (
   `ID_Alumno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `asesor_academico`
+--
+
+INSERT INTO `asesor_academico` (`id`, `Ape_Paterno_AA`, `Ape_Materno_AA`, `Nombres_AA`, `Tel_Lada_AA`, `Tel_Num_AA`, `Email_AA`, `ID_Cargo`, `ID_Alumno`) VALUES
+(1, 'Xiu', 'Chan', 'Mariano', NULL, '9885263215', 'ut_tareas@live.com', 3, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -84,6 +92,13 @@ CREATE TABLE `asesor_empresarial` (
   `ID_Cargo` int(11) DEFAULT NULL,
   `ID_Alumno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `asesor_empresarial`
+--
+
+INSERT INTO `asesor_empresarial` (`id`, `Ape_Paterno_AE`, `Ape_Materno_AE`, `Nombres_AE`, `Tel_Lada_AE`, `Tel_Num_AE`, `Email_AE`, `ID_Cargo`, `ID_Alumno`) VALUES
+(1, 'Garcia', 'Martinez', 'Natalia', NULL, '9856532523', 'nat.garcia@wayaweb.com', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -156,6 +171,13 @@ CREATE TABLE `empresa` (
   `ID_Tipo` int(11) NOT NULL,
   `ID_Alumno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `empresa`
+--
+
+INSERT INTO `empresa` (`id`, `Nombre_Emp`, `Giro`, `Direccion_Emp`, `Ape_Paterno_RH`, `Ape_Materno_RH`, `Nombres_RH`, `Tel_Lada`, `Tel_Num`, `Tel_Ext`, `Email_Emp`, `ID_Tipo`, `ID_Alumno`) VALUES
+(1, 'WayaWeb', 'Servicios', 'Calle 46 Manzana 36 Lote 14 Región 102', 'Gomez', 'Gutierrez', 'Mireya', 998, 5643215, NULL, 'miyera.wayabe@live.com', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -256,6 +278,13 @@ CREATE TABLE `proyecto` (
   `Nombre_Proyecto` varchar(40) DEFAULT NULL,
   `ID_Alumno` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proyecto`
+--
+
+INSERT INTO `proyecto` (`id`, `Nombre_Proyecto`, `ID_Alumno`) VALUES
+(1, 'WDash', NULL);
 
 -- --------------------------------------------------------
 
@@ -367,7 +396,18 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (65, '201800367', '201800367@estudiantes.upqroo.edu.mx', NULL, '$2y$10$RuYrmsGCxNrgQfjvE.ii1.fmSVuDwecS7jdem7tN58DO2GVFFqm96', NULL, '2022-01-15 22:11:00', '2022-01-15 22:11:00'),
 (66, '201900367', '201900367@estudiantes.upqroo.edu.mx', NULL, '$2y$10$gkxOYRJSxIAyTGF5BYVStOSsNGCy7kaEDSrJ74LydklGTZsUD2S7a', NULL, '2022-01-15 22:11:32', '2022-01-15 22:11:32'),
 (67, '201900050', '201900050@estudiantes.upqroo.edu.mx', NULL, '$2y$10$P1J4ohWpYk2Y6q7oKuP4UecIaBdWpdNG3kPaVCap8CNaaYFN.i4NK', NULL, '2022-01-15 22:12:37', '2022-01-15 22:12:37'),
-(68, '201800087', '201800087@estudiantes.upqroo.edu.mx', NULL, '$2y$10$a8/RFT2uYpvdj.NP43zWnefkyo.QBtcdYPZv1iVqdSqy8p.DR9nk2', NULL, '2022-01-15 22:13:26', '2022-01-15 22:13:26');
+(68, '201800087', '201800087@estudiantes.upqroo.edu.mx', NULL, '$2y$10$a8/RFT2uYpvdj.NP43zWnefkyo.QBtcdYPZv1iVqdSqy8p.DR9nk2', NULL, '2022-01-15 22:13:26', '2022-01-15 22:13:26'),
+(69, 'Carlos Roberto Esquivel', 'ing.software@upqroo.edu.mx', NULL, '$2y$10$Gc3NRCS303QSauZgi7rbguwOyj4jyZs41vOYnY1Xg.k1kUr6cIwLW', NULL, '2022-01-15 23:42:55', '2022-01-15 23:42:55'),
+(72, '201700067', '201700067@estudiantes.upqroo.edu.mx', NULL, '$2y$10$/38.sBpiJefZA2iKs..Jt.wfiQ/MeF7WabdnA1IW4P83Q24CCwToa', NULL, '2022-01-15 23:47:27', '2022-01-15 23:47:27'),
+(73, '201800044', '201800044@estudiantes.upqroo.edu.mx', NULL, '$2y$10$PhV3LcVHgDiuf3sRvkfdjO4Ju/ItZY5S4zH8R47d.MdzT0CWMXuPO', NULL, '2022-01-15 23:49:28', '2022-01-15 23:49:28'),
+(74, '201800050', '201800050@estudiantes.upqroo.edu.mx', NULL, '$2y$10$oR0bIsO205EYDZtFBDryKOjP3INukN1i58JY3hTyqU1ifCY68EGUO', NULL, '2022-01-15 23:49:59', '2022-01-15 23:49:59'),
+(75, '201800057', '201800057@estudiantes.upqroo.edu.mx', NULL, '$2y$10$9CUXaxT.VroVxDrk6WFXXudWrlrQfeyqo5XZ7s6WEsU58shQEna9e', NULL, '2022-01-15 23:50:32', '2022-01-15 23:50:32'),
+(76, '201800061', '201800061@estudiantes.upqroo.edu.mx', NULL, '$2y$10$OPmWZGJgScXjRMpKD.4BB.qZUcFs180riEwJj2ttQdyx./KpYW6J2', NULL, '2022-01-15 23:51:08', '2022-01-15 23:51:08'),
+(77, '201800073', '201800073@estudiantes.upqroo.edu.mx', NULL, '$2y$10$VYVWP/YLcY7fAavJch3v2uMy6pS9if9zq5uN61wO/sW6U52lzQYx2', NULL, '2022-01-15 23:51:39', '2022-01-15 23:51:39'),
+(78, '201800081', '201800081@estudiantes.upqroo.edu.mx', NULL, '$2y$10$5v8bpCJL8m3PiEDNhLgz0u2vCuhEEA49sID.gXzA1abx6gArgSPQK', NULL, '2022-01-15 23:52:13', '2022-01-15 23:52:13'),
+(79, '201800082', '201800082@estudiantes.upqroo.edu.mx', NULL, '$2y$10$.rxa2wWGH0J3.FPP6/D7DeCPAP2fxC39nSF/p4F2if26RMffDiwYW', NULL, '2022-01-15 23:52:46', '2022-01-15 23:52:46'),
+(80, '201700092', '201700092@estudiantes.upqroo.edu.mx', NULL, '$2y$10$0D5dFXBpTWRBOteOGf7x7e2mHTOwkmTk5Q8.hMRaM52d/oNAoNDwq', NULL, '2022-01-15 23:53:26', '2022-01-15 23:53:26'),
+(81, '201700095', '201700095@estudiantes.upqroo.edu.mx', NULL, '$2y$10$k7t0gS4QtuwpXUVbhLeBzuAc5clXCgvYyHjJA6VPKRYuW9Etx/.NO', NULL, '2022-01-15 23:53:58', '2022-01-15 23:53:58');
 
 --
 -- Índices para tablas volcadas
@@ -479,19 +519,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT de la tabla `asesor_academico`
 --
 ALTER TABLE `asesor_academico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `asesor_empresarial`
 --
 ALTER TABLE `asesor_empresarial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `cargo`
@@ -509,7 +549,7 @@ ALTER TABLE `carreras`
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -539,7 +579,7 @@ ALTER TABLE `procesos`
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`
@@ -551,7 +591,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- Restricciones para tablas volcadas
