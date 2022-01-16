@@ -87,25 +87,25 @@
                 <div class="form-group col-6">
                     <label for="">Proceso:</label>
                     <select class="form-control" name="ID_Procesos" id="">
-                        <option value="1">Estancías 1</option>
-                        <option value="2">Estancías 2</option>
+                        <option value="1">Estancia 1</option>
+                        <option value="2">Estancia 2</option>
                         <option value="3">Estadía</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="">Matricula:</label>
+                    <label for="">Matrícula:</label>
                     <input type="text" class="form-control" name="Matricula" id="" placeholder="ejem: 2018...">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Carrera:</label>
                     <select class="form-control" name="ID_Carrera" id="" aria-label="">
-                        <option value="1">Ing. Biomedica</option>
-                        <option value="2">Ing. Biotecnologia</option>
+                        <option value="1">Ing. Biomédica</option>
+                        <option value="2">Ing. Biotecnología</option>
                         <option value="3">Ing. Financiera</option>
                         <option value="4">Ing. Software</option>
                         <option value="5">Lic. Admon Y Gestion De PyMes</option>
-                        <option value="6">Lic. Gestion Empresaria</option>
-                        <option value="7">Lic. Terapia Fisica</option>
+                        <option value="6">Lic. Gestión Empresarial</option>
+                        <option value="7">Lic. Terapia Física</option>
                     </select>
                 </div>
                 <div class="form-group col-md-6">
@@ -117,7 +117,7 @@
                     <input type="email" class="form-control" name="Email" id="" placeholder="UPQROO">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="">N°. SS:</label>
+                    <label for="">N°. Seguridad Social:</label>
                     <input type="text" class="form-control" name="No_SS" id="" placeholder="">
                 </div>
                 <div class="form-group col-md-8">
@@ -295,10 +295,10 @@
             <div class="pt-1 mb-4">
                             <button class="btn btn-dark btn-lg btn-block" type="submit">Guardar</button>
                         </div>
-            <button class="g-recaptcha" 
+            <!--<button class="g-recaptcha" 
                     data-sitekey="6LedJ78dAAAAAPmUrFR2Qkm3U63zK0Uj0LILa-h3" 
                     data-callback='onSubmit' 
-                    data-action='submit'>Submit</button>
+                    data-action='submit'>Submit</button>-->
         </form>
         @else
             kajksjaksj
