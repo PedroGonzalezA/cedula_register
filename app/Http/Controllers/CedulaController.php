@@ -79,6 +79,8 @@ class CedulaController extends Controller
                 'ID_Carrera'    => $carrera
             );
 
+            $response_alumno = Alumno::requestInsertAlumno($data);
+            
             $data2 = array(
                 'Nombre_Emp'    => $nombre_emp,
                 'Giro'          => $giro,
@@ -90,38 +92,11 @@ class CedulaController extends Controller
                 'Tel_Num'       => $tel_num,
                 'Tel_Ext'       => $tel_ext,
                 'Email_Emp'     => $email_emp,
-                'ID_Tipo'       => $tipo
+                'ID_Tipo'       => $tipo,
+                'ID_Alumno'     => $response_alumno['id']
             );
 
-            $data3 = array(
-                'Ape_Paterno_AE'=> $ape_paterno_ae,
-                'Ape_Materno_AE'=> $ape_materno_ae,
-                'Nombres_AE'    => $nombres_ae,
-                'Tel_Lada_AE'   => $tel_lada_ae,
-                'Tel_Num_AE'    => $tel_num_ae,
-                'Email_AE'      => $email_ae,
-                'ID_Cargo'      => $cargo
-            );
-
-            $data4 = array(
-
-                'Ape_Paterno_AA'=> $ape_paterno_aa,
-                'Ape_Materno_AA'=> $ape_materno_aa,
-                'Nombres_AA'    => $nombres_aa,
-                'Tel_Lada_AA'   => $tel_lada_aa,
-                'Tel_Num_AA'    => $tel_num_aa,
-                'Email_AA'      => $email_aa,
-                'ID_Cargo'      => $cargo
-            );
-
-            $data5 = array(
-
-                'Nombre_Proyecto'   => $nombre_pro
-            );
-
-            $response = Alumno::requestInsertAlumno($data);
-
-            if ( isset($response["code"]) && $response["code"] == 200 ) {
+            if ( isset($response_alumno["code"]) && $response_alumno["code"] == 200 ) {
                 $arrayResult = array(
                     'Response'  => array(
                         'ok'        => true,
@@ -129,93 +104,126 @@ class CedulaController extends Controller
                         'code'      => "200",
                     ),
                 );
+                $response = Empresa::requestInsertEmpresa($data2);
+
+                if ( isset($response["code"]) && $response["code"] == 200 ) {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => true,
+                            'message'   => "Se ha guardado el registro",
+                            'code'      => "200",
+                        ),
+                    );
+                    $data3 = array(
+                        'Ape_Paterno_AE'=> $ape_paterno_ae,
+                        'Ape_Materno_AE'=> $ape_materno_ae,
+                        'Nombres_AE'    => $nombres_ae,
+                        'Tel_Lada_AE'   => $tel_lada_ae,
+                        'Tel_Num_AE'    => $tel_num_ae,
+                        'Email_AE'      => $email_ae,
+                        'ID_Cargo'      => $cargo,
+                        'ID_Alumno'     => $response_alumno['id']
+                    );
+                    
+                    $response = Asesor_Emp::requestInsertAsesor_Emp($data3);
+        
+                    if ( isset($response["code"]) && $response["code"] == 200 ) {
+                        $arrayResult = array(
+                            'Response'  => array(
+                                'ok'        => true,
+                                'message'   => "Se ha guardado el registro",
+                                'code'      => "200",
+                            ),
+                        );
+
+                    } else {
+                        $arrayResult = array(
+                            'Response'  => array(
+                                'ok'        => false,
+                                'message'   => $response['message'],
+                                'code'      => $response['code']
+                            ),
+                        );
+                    }
+
+                    $data4 = array(
+
+                        'Ape_Paterno_AA'=> $ape_paterno_aa,
+                        'Ape_Materno_AA'=> $ape_materno_aa,
+                        'Nombres_AA'    => $nombres_aa,
+                        'Tel_Lada_AA'   => $tel_lada_aa,
+                        'Tel_Num_AA'    => $tel_num_aa,
+                        'Email_AA'      => $email_aa,
+                        'ID_Cargo'      => $cargo,
+                        'ID_Alumno'     => $response_alumno['id']
+                    );
+
+                    $response = Asesor_Aca::requestInsertAsesor_Aca($data4);
+
+                    if ( isset($response["code"]) && $response["code"] == 200 ) {
+                        $arrayResult = array(
+                            'Response'  => array(
+                                'ok'        => true,
+                                'message'   => "Se ha guardado el registro",
+                                'code'      => "200",
+                            ),
+                        );
+
+
+
+                    } else {
+                        $arrayResult = array(
+                            'Response'  => array(
+                                'ok'        => false,
+                                'message'   => $response['message'],
+                                'code'      => $response['code']
+                            ),
+                        );
+                    }
+
+                } else {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => false,
+                            'message'   => $response['message'],
+                            'code'      => $response['code']
+                        ),
+                    );
+                }
+
+                $data5 = array(
+
+                    'Nombre_Proyecto'   => $nombre_pro,
+                    'ID_Alumno'         => $response_alumno['id']
+                );
+
+                $response = Proyecto::requestInsertProyecto($data5);
+
+                if ( isset($response["code"]) && $response["code"] == 200 ) {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => true,
+                            'message'   => "Se ha guardado el registro",
+                            'code'      => "200",
+                        ),
+                    );
+                    return view('registro_final');
+                } else {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => false,
+                            'message'   => $response['message'],
+                            'code'      => $response['code']
+                        ),
+                    );
+                }
+
             } else {
                 $arrayResult = array(
                     'Response'  => array(
                         'ok'        => false,
-                        'message'   => $response['message'],
-                        'code'      => $response['code']
-                    ),
-                );
-            }
-
-            $response = Empresa::requestInsertEmpresa($data2);
-
-            if ( isset($response["code"]) && $response["code"] == 200 ) {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => true,
-                        'message'   => "Se ha guardado el registro",
-                        'code'      => "200",
-                    ),
-                );
-            } else {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => false,
-                        'message'   => $response['message'],
-                        'code'      => $response['code']
-                    ),
-                );
-            }
-            
-            $response = Asesor_Emp::requestInsertAsesor_Emp($data3);
-
-            if ( isset($response["code"]) && $response["code"] == 200 ) {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => true,
-                        'message'   => "Se ha guardado el registro",
-                        'code'      => "200",
-                    ),
-                );
-            } else {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => false,
-                        'message'   => $response['message'],
-                        'code'      => $response['code']
-                    ),
-                );
-            }
-
-            $response = Asesor_Aca::requestInsertAsesor_Aca($data4);
-
-            if ( isset($response["code"]) && $response["code"] == 200 ) {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => true,
-                        'message'   => "Se ha guardado el registro",
-                        'code'      => "200",
-                    ),
-                );
-            } else {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => false,
-                        'message'   => $response['message'],
-                        'code'      => $response['code']
-                    ),
-                );
-            }
-
-            $response = Proyecto::requestInsertProyecto($data5);
-
-            if ( isset($response["code"]) && $response["code"] == 200 ) {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => true,
-                        'message'   => "Se ha guardado el registro",
-                        'code'      => "200",
-                    ),
-                );
-                return view('registro_final');
-            } else {
-                $arrayResult = array(
-                    'Response'  => array(
-                        'ok'        => false,
-                        'message'   => $response['message'],
-                        'code'      => $response['code']
+                        'message'   => $response_alumno['message'],
+                        'code'      => $response_alumno['code']
                     ),
                 );
             }
