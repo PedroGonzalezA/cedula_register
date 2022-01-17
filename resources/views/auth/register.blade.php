@@ -45,7 +45,7 @@
                         <div class="form-outline mb-4">
                             <input type="text" id="name" class="form-control form-control-lg"
                             name="name" />
-                            <label class="form-label" for="name">Username</label>
+                            <label class="form-label" for="name">Nombre Usuario</label>
                         </div>
                         @error('name')
                             <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
