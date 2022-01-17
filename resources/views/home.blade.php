@@ -70,19 +70,19 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno" id="" placeholder="Apellido Paterno">
+                    <input type="text" class="form-control" name="Ape_Paterno" id="" placeholder="Apellido Paterno" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno" id="" placeholder="Apellido Materno">
+                    <input type="text" class="form-control" name="Ape_Materno" id="" placeholder="Apellido Materno" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres" id="" placeholder="Nombre[s]">
+                    <input type="text" class="form-control" name="Nombres" id="" placeholder="Nombre[s]" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="Tel" id="">
+                    <input type="text" class="form-control" name="Tel" id="" required>
                 </div>
                 <div class="form-group col-6">
                     <label for="">Proceso:</label>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Matrícula:</label>
-                    <input type="text" class="form-control" name="Matricula" id="" placeholder="ejem: 2018...">
+                    <input type="text" class="form-control" name="Matricula" id="" placeholder="ejem: 2018..." required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Carrera:</label>
@@ -110,19 +110,19 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" name="Email_Per" id="" placeholder="Personal">
+                    <input type="email" class="form-control" name="Email_Per" id="" placeholder="Personal" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" name="Email" id="" placeholder="UPQROO">
+                    <input type="email" class="form-control" name="Email" id="" placeholder="UPQROO" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">N°. Seguridad Social:</label>
-                    <input type="text" class="form-control" name="No_SS" id="" placeholder="">
+                    <input type="text" class="form-control" name="No_SS" id="" placeholder="" required>
                 </div>
                 <div class="form-group col-md-8">
                     <label for="">Dirección:</label>
-                    <input type="text" class="form-control" name="Direccion" id="" placeholder="1234 Calle Prin.">
+                    <input type="text" class="form-control" name="Direccion" id="" placeholder="1234 Calle Prin." required>
                 </div>
             </div>
             <div class="form-row">
@@ -131,11 +131,11 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Nombre_Emp" id="" placeholder="Nombre Comercial o Publico">
+                    <input type="text" class="form-control" name="Nombre_Emp" id="" placeholder="Nombre Comercial o Publico" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Giro:</label>
-                    <input type="text" class="form-control" name="Giro" id="" placeholder="Ejemplo: Servicios">
+                    <input type="text" class="form-control" name="Giro" id="" placeholder="Ejemplo: Servicios" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Tipo:</label>
@@ -148,19 +148,19 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="">Dirección:</label>
-                    <input type="text" class="form-control" name="Direccion_Emp" id="" placeholder="1234 Calle Prin.">
+                    <input type="text" class="form-control" name="Direccion_Emp" id="" placeholder="1234 Calle Prin." required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">Responsable de Recursos Humanos:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno_RH" id="" placeholder="Apellido Paterno">
+                    <input type="text" class="form-control" name="Ape_Paterno_RH" id="" placeholder="Apellido Paterno" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno_RH" id="" placeholder="Apellido Materno">
+                    <input type="text" class="form-control" name="Ape_Materno_RH" id="" placeholder="Apellido Materno" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres_RH" id="" placeholder="Nombre[s]">
+                    <input type="text" class="form-control" name="Nombres_RH" id="" placeholder="Nombre[s]" required>
                 </div>
                 <div class="form-group col-md-1">
                     <label for="">Tel:</label>
@@ -168,7 +168,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Num" id="" placeholder="Número">
+                    <input type="text" class="form-control" name="Tel_Num" id="" placeholder="Número" required>
                 </div>
                 <div class="form-group col-md-1">
                     <label for="">&nbsp;</label>
@@ -176,7 +176,7 @@
                 </div>
                 <div class="form-group col-md-7">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" name="Email_Emp" id="" placeholder="Email empresa">
+                    <input type="email" class="form-control" name="Email_Emp" id="" placeholder="Email empresa" required>
                 </div>
             </div>
             <div class="form-row">
@@ -185,15 +185,15 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno_AE" id="" placeholder="Apellido Paterno">
+                    <input type="text" class="form-control" name="Ape_Paterno_AE" id="" placeholder="Apellido Paterno" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno_AE" id="" placeholder="Apellido Materno">
+                    <input type="text" class="form-control" name="Ape_Materno_AE" id="" placeholder="Apellido Materno" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres_AE" id="" placeholder="Nombre[s]">
+                    <input type="text" class="form-control" name="Nombres_AE" id="" placeholder="Nombre[s]" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Cargo:</label>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Num_AE" id="" placeholder="Número">
+                    <input type="text" class="form-control" name="Tel_Num_AE" id="" placeholder="Número" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
@@ -232,15 +232,15 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno_AA" id="" placeholder="Apellido Paterno">
+                    <input type="text" class="form-control" name="Ape_Paterno_AA" id="" placeholder="Apellido Paterno" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno_AA" id="" placeholder="Apellido Materno">
+                    <input type="text" class="form-control" name="Ape_Materno_AA" id="" placeholder="Apellido Materno" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres_AA" id="" placeholder="Nombre[s]">
+                    <input type="text" class="form-control" name="Nombres_AA" id="" placeholder="Nombre[s]" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Cargo:</label>
@@ -262,7 +262,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Num_AA" id="" placeholder="Número">
+                    <input type="text" class="form-control" name="Tel_Num_AA" id="" placeholder="Número" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
@@ -279,7 +279,7 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Nombre_Proyecto" id="" placeholder="Nombre Proyecto">
+                    <input type="text" class="form-control" name="Nombre_Proyecto" id="" placeholder="Nombre Proyecto" required>
                 </div>
                 <!--<div class="form-group row justify-content-md-center">
                     <div class="col-md-auto">
