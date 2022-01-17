@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-01-2022 a las 03:06:56
+-- Tiempo de generación: 17-01-2022 a las 03:12:42
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -363,8 +363,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (14, '201700316', '201700316@estudiantes.upqroo.edu.mx', NULL, '$2y$10$EyrsUjRqG.r8Yy8xZUEYgeNtkMrKVEFw1O767xSmWQFIgJMPOENCW', NULL, '2022-01-15 13:02:21', '2022-01-15 13:02:21'),
 (15, '201700319', '201700319@estudiantes.upqroo.edu.mx', NULL, '$2y$10$zCJYHUGofMUovRVKVABK6e/lB3.q4tLB/BkEUK5Ek.c./9KGtX6LO', NULL, '2022-01-15 13:04:34', '2022-01-15 13:04:34'),
 (16, '201700332', '201700332@estudiantes.upqroo.edu.mx', NULL, '$2y$10$X4fcXrxzMGuUpwXMlT7sbuMdRUkbfvarYIZzv/TTVZAldTOmS8EaC', NULL, '2022-01-15 13:06:20', '2022-01-15 13:06:20'),
-(17, '201800317', '201800317@estudiantes.upqroo.edu.mx', NULL, '201800317', NULL, '2022-01-15 13:07:49', '2022-01-15 13:07:49'),
-(18, '201700361', '20100361@estudiantes.upqroo.edu.mx', NULL, '$2y$10$q1kTWuFjUd8d8zn1X7X3ius.7JnSYbx8X22OgvnGuPXDCkzEsiNB.', NULL, '2022-01-15 13:09:30', '2022-01-15 13:09:30'),
+(18, '201700361', '201700361@estudiantes.upqroo.edu.mx', NULL, '$2y$10$q1kTWuFjUd8d8zn1X7X3ius.7JnSYbx8X22OgvnGuPXDCkzEsiNB.', NULL, '2022-01-15 13:09:30', '2022-01-15 13:09:30'),
 (19, '202000346', '202000346@estudiantes.upqroo.edu.mx', NULL, '$2y$10$.HdH2uKxB38pygKVCbbTWeAFIv1B884lPYHO2SUjwc6MEKuA0lR.W', NULL, '2022-01-15 13:12:58', '2022-01-15 13:12:58'),
 (20, '202000358', '202000358@estudiantes.upqroo.edu.mx', NULL, '$2y$10$NqRtv03i8gGFWGuHeEe/VODo40eZmBkAAXg6OlbOIUGLh8eXAD0Lm', NULL, '2022-01-15 13:14:32', '2022-01-15 13:14:32'),
 (21, '201800120', '201800120@estudiantes.upqroo.edu.mx', NULL, '$2y$10$YcDblyNX8JK/cf0M7h4Gzu5yNFmkcbJ.0w8qRYfIf2X/F2jALSUHC', NULL, '2022-01-15 13:16:40', '2022-01-15 13:16:40'),
@@ -426,7 +425,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (82, 'Josmar', 'yosmarherrerax23@gmail.com', NULL, '$2y$10$UPkB1ofbe/nuYOvIVsbGw.6XILlDy3qKD6qHUwXLVzSeAEwkI0ozy', NULL, '2022-01-17 06:36:13', '2022-01-17 06:36:13'),
 (83, '201900101', '201900101@estudiantes.upqroo.edu.mx', NULL, '$2y$10$4rCq.La4b.EE2KqrnOkZt.zbYrV1bY1b4959mwNcNRWTJHkJ5bZlO', NULL, '2022-01-17 06:59:29', '2022-01-17 06:59:29'),
 (84, '201800031', '201800031@estudiantes.upqroo.edu.mx', NULL, '$2y$10$PpIpbqDyoZVHEbFMGkFYcuieFW.aekPzP8/mWg7xcs7227tJRj6pW', NULL, '2022-01-17 07:01:04', '2022-01-17 07:01:04'),
-(85, '202000472', '202000472@estudiantes.upqroo.edu.mx', NULL, '$2y$10$cHqFCkiFSGToFtvvQ4OlWO5Xcsk2YWGC12Bz.9bXd2WhvrwwVfaiK', NULL, '2022-01-17 07:02:37', '2022-01-17 07:02:37');
+(85, '202000472', '202000472@estudiantes.upqroo.edu.mx', NULL, '$2y$10$cHqFCkiFSGToFtvvQ4OlWO5Xcsk2YWGC12Bz.9bXd2WhvrwwVfaiK', NULL, '2022-01-17 07:02:37', '2022-01-17 07:02:37'),
+(86, '201800317', '201800317@estudiantes.upqroo.edu.mx', NULL, '$2y$10$lPz2FKzunCF5LeTxIT9BBe50jqFpMrxNJ23bU8rMCpKe9oLseup/6', NULL, '2022-01-17 07:11:19', '2022-01-17 07:11:19');
 
 --
 -- Índices para tablas volcadas
@@ -610,7 +610,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- Restricciones para tablas volcadas
