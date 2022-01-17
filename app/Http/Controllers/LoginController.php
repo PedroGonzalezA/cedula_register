@@ -19,7 +19,7 @@ class LoginController extends Controller
 
         if(auth()->attempt(request(['name', 'password'])) == false) {
             return back()->withErrors([
-                'message' => 'The email or Password is Incorrect, please try again'
+                'message' => 'El correo electrónico o la contraseña son incorrectos, intente nuevamente'
             ]);
         }
         return redirect()->to('/');
