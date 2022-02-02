@@ -52,6 +52,15 @@
                         @enderror
 
                         <div class="form-outline mb-4">
+                            <input type="text" id="role" class="form-control form-control-lg"
+                            name="role" />
+                            <label class="form-label" for="role">Rol de Usuario</label>
+                        </div>
+                        @error('role')
+                            <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                        @enderror
+
+                        <div class="form-outline mb-4">
                             <input type="email" id="email" class="form-control form-control-lg"
                             name="email" />
                             <label class="form-label" for="email">Email</label>
