@@ -4,6 +4,10 @@ use App\Http\Controllers\CedulaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FormulariosController;
+use App\Http\Controllers\UsuariosController;
+use App\Models\Formulario;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,3 +48,11 @@ Route::get('/logout', [LoginController::class, 'destroy'])
 
 Route::post('/home', [CedulaController::class, 'store'])
     ->name('home.store');
+
+
+Route::get('/admin', [AdminController::class, 'index'])
+    ->middleware('auth.admin')
+    ->name('admin.index');
+
+Route::get('/usuarios', [UsuariosController::class, 'create'])
+    ->name('usuarios.index');

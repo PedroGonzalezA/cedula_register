@@ -7,6 +7,8 @@ use App\Models\Asesor_Aca;
 use App\Models\Asesor_Emp;
 use App\Models\Empresa;
 use App\Models\Proyecto;
+use App\Models\Formulario;
+use App\Models\Respuesta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Exception;
@@ -93,7 +95,7 @@ class CedulaController extends Controller
                 'Tel_Ext'       => $tel_ext,
                 'Email_Emp'     => $email_emp,
                 'ID_Tipo'       => $tipo,
-                'ID_Alumno'     => $response_alumno['id']
+                //'ID_Alumno'     => $response_alumno['id']
             );
 
             if ( isset($response_alumno["code"]) && $response_alumno["code"] == 200 ) {
@@ -104,9 +106,9 @@ class CedulaController extends Controller
                         'code'      => "200",
                     ),
                 );
-                $response = Empresa::requestInsertEmpresa($data2);
+                $response_empresa = Empresa::requestInsertEmpresa($data2);
 
-                if ( isset($response["code"]) && $response["code"] == 200 ) {
+                if ( isset($response_empresa["code"]) && $response_empresa["code"] == 200 ) {
                     $arrayResult = array(
                         'Response'  => array(
                             'ok'        => true,
@@ -122,12 +124,12 @@ class CedulaController extends Controller
                         'Tel_Num_AE'    => $tel_num_ae,
                         'Email_AE'      => $email_ae,
                         'ID_Cargo'      => $cargo,
-                        'ID_Alumno'     => $response_alumno['id']
+                        //'ID_Alumno'     => $response_alumno['id']
                     );
                     
-                    $response = Asesor_Emp::requestInsertAsesor_Emp($data3);
+                    $response_asesor_emp = Asesor_Emp::requestInsertAsesor_Emp($data3);
         
-                    if ( isset($response["code"]) && $response["code"] == 200 ) {
+                    if ( isset($response_asesor_emp["code"]) && $response_asesor_emp["code"] == 200 ) {
                         $arrayResult = array(
                             'Response'  => array(
                                 'ok'        => true,
@@ -140,8 +142,8 @@ class CedulaController extends Controller
                         $arrayResult = array(
                             'Response'  => array(
                                 'ok'        => false,
-                                'message'   => $response['message'],
-                                'code'      => $response['code']
+                                'message'   => $response_asesor_emp['message'],
+                                'code'      => $response_asesor_emp['code']
                             ),
                         );
                     }
@@ -155,12 +157,12 @@ class CedulaController extends Controller
                         'Tel_Num_AA'    => $tel_num_aa,
                         'Email_AA'      => $email_aa,
                         'ID_Cargo'      => $cargo,
-                        'ID_Alumno'     => $response_alumno['id']
+                        //'ID_Alumno'     => $response_alumno['id']
                     );
 
-                    $response = Asesor_Aca::requestInsertAsesor_Aca($data4);
+                    $response_asesor_aca = Asesor_Aca::requestInsertAsesor_Aca($data4);
 
-                    if ( isset($response["code"]) && $response["code"] == 200 ) {
+                    if ( isset($response_asesor_aca["code"]) && $response_asesor_aca["code"] == 200 ) {
                         $arrayResult = array(
                             'Response'  => array(
                                 'ok'        => true,
@@ -175,8 +177,8 @@ class CedulaController extends Controller
                         $arrayResult = array(
                             'Response'  => array(
                                 'ok'        => false,
-                                'message'   => $response['message'],
-                                'code'      => $response['code']
+                                'message'   => $response_asesor_aca['message'],
+                                'code'      => $response_asesor_aca['code']
                             ),
                         );
                     }
@@ -185,8 +187,8 @@ class CedulaController extends Controller
                     $arrayResult = array(
                         'Response'  => array(
                             'ok'        => false,
-                            'message'   => $response['message'],
-                            'code'      => $response['code']
+                            'message'   => $response_empresa['message'],
+                            'code'      => $response_empresa['code']
                         ),
                     );
                 }
@@ -194,12 +196,12 @@ class CedulaController extends Controller
                 $data5 = array(
 
                     'Nombre_Proyecto'   => $nombre_pro,
-                    'ID_Alumno'         => $response_alumno['id']
+                    //'ID_Alumno'         => $response_alumno['id']
                 );
 
-                $response = Proyecto::requestInsertProyecto($data5);
+                $response_proyecto = Proyecto::requestInsertProyecto($data5);
 
-                if ( isset($response["code"]) && $response["code"] == 200 ) {
+                if ( isset($response_proyecto["code"]) && $response_proyecto["code"] == 200 ) {
                     $arrayResult = array(
                         'Response'  => array(
                             'ok'        => true,
@@ -207,13 +209,70 @@ class CedulaController extends Controller
                             'code'      => "200",
                         ),
                     );
+                    
+                } else {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => false,
+                            'message'   => $response_proyecto['message'],
+                            'code'      => $response_proyecto['code']
+                        ),
+                    );
+                }
+
+                $data6 = array(
+                    'ID_Alumno'     =>  $response_alumno['id'],
+                    'ID_Empresa'    =>  $response_empresa['id'],
+                    'ID_Asesor_Emp' =>  $response_asesor_emp['id'],
+                    'ID_Asesor_Aca' =>  $response_asesor_aca['id'],
+                    'ID_Proyecto'   =>  $response_proyecto['id'],
+                    'status'        =>  1
+                );
+
+                $response_formulario = Formulario::requestInsertFormulario($data6);
+
+                if (isset($response_formulario["code"]) && $response_formulario["code"] == 200) {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => true,
+                            'message'   => "Se ha guardado el registro",
+                            'code'      => "200",
+                        ),
+                    );
+
+                } else {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => false,
+                            'message'   => $response_formulario['message'],
+                            'code'      => $response_formulario['code']
+                        ),
+                    );
+                }
+
+                $data7 = array(
+                    'ID_Usuario'    => Auth::user()->id,
+                    'ID_Formulario' => $response_formulario['id']
+                );
+
+                $response_respuesta = Respuesta::requestInsertRespuesta($data7);
+
+                if ( isset($response_respuesta["code"]) && $response_respuesta["code"] == 200) {
+                    $arrayResult = array(
+                        'Response'  => array(
+                            'ok'        => true,
+                            'message'   => "Se ha guardado el registro",
+                            'code'      => "200",
+                        ),
+                    );
+
                     return view('registro_final');
                 } else {
                     $arrayResult = array(
                         'Response'  => array(
                             'ok'        => false,
-                            'message'   => $response['message'],
-                            'code'      => $response['code']
+                            'message'   => $response_respuesta['message'],
+                            'code'      => $response_respuesta['code']
                         ),
                     );
                 }
