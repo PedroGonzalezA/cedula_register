@@ -9,10 +9,10 @@ use Exception;
 
 class Empresa extends Model
 {
-    protected $table = 'Empresa';
+    protected $table = 'empresa';
 
     public static function getAllEmpresa() {
-        return \DB::table('Empresa')
+        return \DB::table('empresa')
             ->join('Alumno', 'Empresa.ID_Alumno', '=', 'ID_Alumno')
             ->select('Empresa.*', 'Alumno.email as alumno_name')
             ->get();
@@ -51,7 +51,7 @@ class Empresa extends Model
         $arrayResponse = array();
 
         try{
-            $empresaId = \DB::table('Empresa')->insertGetId($data);
+            $empresaId = \DB::table('empresa')->insertGetId($data);
             
             $arrayResponse = array(
                 "code"      => 200,

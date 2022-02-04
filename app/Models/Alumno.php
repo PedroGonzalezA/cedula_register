@@ -9,7 +9,7 @@ use Exception;
 
 class Alumno extends Model
 {
-    protected $table = 'Alumno';
+    protected $table = 'alumno';
 
     /**
      * LLamada a la peticion para agregar un nuevo marcador
@@ -45,7 +45,7 @@ class Alumno extends Model
 
         try{
             
-            $alumnoId = \DB::table('Alumno')->insertGetId($data);
+            $alumnoId = \DB::table('alumno')->insertGetId($data);
             
             $arrayResponse = array(
                 "code"      => 200,

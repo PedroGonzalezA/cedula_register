@@ -10,10 +10,10 @@ class Respuesta extends Model
 {
     use HasFactory;
 
-    protected $table = 'Respuesta';
+    protected $table = 'respuesta';
 
     public static function getAllRespuesta() {
-        return \DB::table('Respuesta')
+        return \DB::table('respuesta')
                     ->join('users', 'users.id', '=', 'Respuesta.ID_Usuario')
                     ->join('Formulario', 'Formulario.id', '=', 'Respuesta.ID_Formulario')
                     ->select('users.name', 'formulario.status')
@@ -53,7 +53,7 @@ class Respuesta extends Model
         $arrayResponse = array();
 
         try{
-            $empresaId = \DB::table('Respuesta')->insertGetId($data);
+            $empresaId = \DB::table('respuesta')->insertGetId($data);
             
             $arrayResponse = array(
                 "code"      => 200,

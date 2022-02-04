@@ -11,7 +11,7 @@ class Formulario extends Model
 {
     use HasFactory;
 
-    protected $table = 'Formulario';
+    protected $table = 'formulario';
 
     public static function requestInsertFormulario($data) {
 
@@ -37,7 +37,7 @@ class Formulario extends Model
         $arrayResponse = array();
 
         try {
-            $formularioId = \DB::table('Formulario')->insertGetId($data);
+            $formularioId = \DB::table('formulario')->insertGetId($data);
 
             $arrayResponse = array(
                 "code"      => 200,
