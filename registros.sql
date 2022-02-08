@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-02-2022 a las 17:54:24
+-- Tiempo de generación: 08-02-2022 a las 03:03:34
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.27
 
@@ -29,24 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumno` (
   `id` int(11) NOT NULL,
-  `Ape_Paterno` varchar(40) DEFAULT NULL,
-  `Ape_Materno` varchar(40) DEFAULT NULL,
-  `Nombres` varchar(40) DEFAULT NULL,
-  `Tel` varchar(10) DEFAULT NULL,
-  `Matricula` varchar(40) DEFAULT NULL,
-  `Email_Per` varchar(40) DEFAULT NULL,
-  `Email` varchar(255) DEFAULT NULL,
-  `No_SS` varchar(20) DEFAULT NULL,
-  `Direccion` varchar(100) DEFAULT NULL,
-  `ID_Procesos` int(10) NOT NULL,
-  `ID_Carrera` int(10) NOT NULL
+  `ape_paterno` varchar(40) DEFAULT NULL,
+  `ape_materno` varchar(40) DEFAULT NULL,
+  `nombres` varchar(40) DEFAULT NULL,
+  `tel` varchar(10) DEFAULT NULL,
+  `matricula` varchar(40) DEFAULT NULL,
+  `email_per` varchar(40) DEFAULT NULL,
+  `email` varchar(40) DEFAULT NULL,
+  `no_ss` varchar(20) DEFAULT NULL,
+  `direccion` varchar(100) DEFAULT NULL,
+  `id_procesos` int(10) NOT NULL,
+  `id_carrera` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `alumno`
 --
 
-INSERT INTO `alumno` (`id`, `Ape_Paterno`, `Ape_Materno`, `Nombres`, `Tel`, `Matricula`, `Email_Per`, `Email`, `No_SS`, `Direccion`, `ID_Procesos`, `ID_Carrera`) VALUES
+INSERT INTO `alumno` (`id`, `ape_paterno`, `ape_materno`, `nombres`, `tel`, `matricula`, `email_per`, `email`, `no_ss`, `direccion`, `id_procesos`, `id_carrera`) VALUES
 (51, 'Hoil', 'Chan', 'Ruben Eliezer', '9983564512', '201800064', 'ruben@live.com', '201800064@eatudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 1, 4),
 (111, 'Chan', 'Hoil', 'Ruben', '9988906245', '201800226', 'ruben@live.com', '201800064@estudiantes.upqroo.edu.mx', '48152362482', 'Calle 46 Manzana 36 Lote 14 Región 102', 3, 4),
 (112, 'Rodríguez', 'Marín', 'Jose', '8565251232', '201800064', 'ruben@live.com', '201800064@estudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 1, 4),
@@ -57,7 +57,9 @@ INSERT INTO `alumno` (`id`, `Ape_Paterno`, `Ape_Materno`, `Nombres`, `Tel`, `Mat
 (117, 'García', 'Ramírez', 'Kevin', '8565251232', '201800066', 'ruben@live.com', '201800020@estudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 2, 4),
 (118, 'Hoil', 'Chan', 'Ruben Eliezer', '9988906245', '201800064', 'ruben@live.com', '201800065@estudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 3, 4),
 (119, 'Hoil', 'Chan', 'Ruben Eliezer', '9983564512', '201800064', 'ruben@live.com', '201800064@estudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 1, 4),
-(120, 'Pérez', 'Villarreal', 'Julio Eduardo', '8565251232', '201800068', 'julio@live.com', '201800068@estudiantes.upqroo.edu.mx', '48152362445', 'Jardines del sur N. 52', 3, 4);
+(120, 'Pérez', 'Villarreal', 'Julio Eduardo', '8565251232', '201800068', 'julio@live.com', '201800068@estudiantes.upqroo.edu.mx', '48152362445', 'Jardines del sur N. 52', 3, 4),
+(121, 'Hoil', 'Chan', 'Ruben Eliezer', '9983564512', '201800064', 'ruben@live.com', '201800064@estudiantes.upqroo.edu.mx', '48152362482', 'Jardines del sur N. 52', 2, 4),
+(122, 'Hoil', 'Chan', 'Ruben', '9988906245', '201800064@hotmail.com', 'ruben@live.com', '201800064@estudiantes.upqroo.edu.mx', '4587156532', 'Calle 46', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -67,27 +69,29 @@ INSERT INTO `alumno` (`id`, `Ape_Paterno`, `Ape_Materno`, `Nombres`, `Tel`, `Mat
 
 CREATE TABLE `asesor_academico` (
   `id` int(11) NOT NULL,
-  `Ape_Paterno_AA` varchar(40) DEFAULT NULL,
-  `Ape_Materno_AA` varchar(40) DEFAULT NULL,
-  `Nombres_AA` varchar(40) DEFAULT NULL,
-  `Tel_Lada_AA` varchar(3) DEFAULT NULL,
-  `Tel_Num_AA` varchar(10) DEFAULT NULL,
-  `Email_AA` varchar(40) DEFAULT NULL,
-  `ID_Cargo` int(11) NOT NULL
+  `ape_paterno_aa` varchar(40) DEFAULT NULL,
+  `ape_materno_aa` varchar(40) DEFAULT NULL,
+  `nombres_aa` varchar(40) DEFAULT NULL,
+  `tel_lada_aa` varchar(3) DEFAULT NULL,
+  `tel_num_aa` varchar(10) DEFAULT NULL,
+  `email_aa` varchar(40) DEFAULT NULL,
+  `id_cargo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `asesor_academico`
 --
 
-INSERT INTO `asesor_academico` (`id`, `Ape_Paterno_AA`, `Ape_Materno_AA`, `Nombres_AA`, `Tel_Lada_AA`, `Tel_Num_AA`, `Email_AA`, `ID_Cargo`) VALUES
+INSERT INTO `asesor_academico` (`id`, `ape_paterno_aa`, `ape_materno_aa`, `nombres_aa`, `tel_lada_aa`, `tel_num_aa`, `email_aa`, `id_cargo`) VALUES
 (1, 'Xiu', 'Chan', 'Mariano', NULL, '9885263215', 'ut_tareas@live.com', 3),
 (2, 'Tamay', 'Gomez', 'Jose', NULL, '9885263215', 'ing.software@upqroo.edu.mx', 2),
 (3, 'Tamay', 'Gomez', 'Jose', NULL, '9885263215', 'ing.software@upqroo.edu.mx', 2),
 (4, 'Tamay', 'Gomez', 'Jose', NULL, '9885263215', 'ing.software@upqroo.edu.mx', 2),
 (5, 'Tamay', 'Gomez', 'Jose', NULL, '9885263215', 'ing.software@upqroo.edu.mx', 2),
 (6, 'Tamay', 'Gomez', 'Jose', NULL, '9885263215', 'tamay@live.com', 2),
-(7, 'Xiu', 'Chan', 'Mariano', NULL, '9982156024', 'ut_tarea@live.com', 3);
+(7, 'Xiu', 'Chan', 'Mariano', NULL, '9982156024', 'ut_tarea@live.com', 3),
+(8, 'Tamay', 'Gomez', 'Jose', NULL, '9885263215', 'tamay@live.com', 2),
+(9, 'Xiu', 'Chan', 'Mariano', NULL, '9982156024', 'ut_tareas@live.com', 3);
 
 -- --------------------------------------------------------
 
@@ -97,27 +101,29 @@ INSERT INTO `asesor_academico` (`id`, `Ape_Paterno_AA`, `Ape_Materno_AA`, `Nombr
 
 CREATE TABLE `asesor_empresarial` (
   `id` int(11) NOT NULL,
-  `Ape_Paterno_AE` varchar(40) DEFAULT NULL,
-  `Ape_Materno_AE` varchar(40) DEFAULT NULL,
-  `Nombres_AE` varchar(40) DEFAULT NULL,
-  `Tel_Lada_AE` varchar(3) DEFAULT NULL,
-  `Tel_Num_AE` varchar(10) DEFAULT NULL,
-  `Email_AE` varchar(40) DEFAULT NULL,
-  `ID_Cargo` int(11) DEFAULT NULL
+  `ape_paterno_ae` varchar(40) DEFAULT NULL,
+  `ape_materno_ae` varchar(40) DEFAULT NULL,
+  `nombres_ae` varchar(40) DEFAULT NULL,
+  `tel_lada_ae` varchar(3) DEFAULT NULL,
+  `tel_num_ae` varchar(10) DEFAULT NULL,
+  `email_ae` varchar(40) DEFAULT NULL,
+  `id_cargo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `asesor_empresarial`
 --
 
-INSERT INTO `asesor_empresarial` (`id`, `Ape_Paterno_AE`, `Ape_Materno_AE`, `Nombres_AE`, `Tel_Lada_AE`, `Tel_Num_AE`, `Email_AE`, `ID_Cargo`) VALUES
+INSERT INTO `asesor_empresarial` (`id`, `ape_paterno_ae`, `ape_materno_ae`, `nombres_ae`, `tel_lada_ae`, `tel_num_ae`, `email_ae`, `id_cargo`) VALUES
 (1, 'Garcia', 'Martinez', 'Natalia', NULL, '9856532523', 'nat.garcia@wayaweb.com', 3),
 (2, 'Kuh', 'Miz', 'Enrique', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 2),
 (3, 'Kuh', 'Miz', 'Enrique', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 2),
 (4, 'Kuh', 'Miz', 'Enrique', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 2),
 (5, 'Kuh', 'Miz', 'Enrique', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 2),
 (6, 'Martínez', 'García', 'Natalia', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 2),
-(7, 'García', 'Ramírez', 'Natalia', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 3);
+(7, 'García', 'Ramírez', 'Natalia', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 3),
+(8, 'García', 'Ramírez', 'Natalia', NULL, '9856532523', 'natalia.garcia@wayaweb.com', 2),
+(9, 'Martínez', 'García', 'Rosaura Natalia', NULL, '9982411054', 'natalia.garcia@wayaweb.com', 3);
 
 -- --------------------------------------------------------
 
@@ -126,15 +132,15 @@ INSERT INTO `asesor_empresarial` (`id`, `Ape_Paterno_AE`, `Ape_Materno_AE`, `Nom
 --
 
 CREATE TABLE `cargo` (
-  `ID_Cargo` int(11) NOT NULL,
-  `Nombre_Cargo` varchar(40) NOT NULL
+  `id_cargo` int(11) NOT NULL,
+  `nombre_cargo` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cargo`
 --
 
-INSERT INTO `cargo` (`ID_Cargo`, `Nombre_Cargo`) VALUES
+INSERT INTO `cargo` (`id_cargo`, `nombre_cargo`) VALUES
 (1, 'Lic.'),
 (2, 'Ing.'),
 (3, 'Mtro.'),
@@ -152,15 +158,15 @@ INSERT INTO `cargo` (`ID_Cargo`, `Nombre_Cargo`) VALUES
 --
 
 CREATE TABLE `carreras` (
-  `ID_Carrera` int(11) NOT NULL,
-  `Nombre_Carrera` varchar(40) NOT NULL
+  `id_carrera` int(11) NOT NULL,
+  `nombre_carrera` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `carreras`
 --
 
-INSERT INTO `carreras` (`ID_Carrera`, `Nombre_Carrera`) VALUES
+INSERT INTO `carreras` (`id_carrera`, `nombre_carrera`) VALUES
 (1, 'Ing. Biomédica'),
 (2, 'Ing. Biotecnología'),
 (3, 'Ing. Financiera'),
@@ -177,31 +183,33 @@ INSERT INTO `carreras` (`ID_Carrera`, `Nombre_Carrera`) VALUES
 
 CREATE TABLE `empresa` (
   `id` int(11) NOT NULL,
-  `Nombre_Emp` varchar(40) DEFAULT NULL,
-  `Giro` varchar(40) DEFAULT NULL,
-  `Direccion_Emp` varchar(40) DEFAULT NULL,
-  `Ape_Paterno_RH` varchar(40) DEFAULT NULL,
-  `Ape_Materno_RH` varchar(40) DEFAULT NULL,
-  `Nombres_RH` varchar(40) DEFAULT NULL,
-  `Tel_Lada` int(3) DEFAULT NULL,
-  `Tel_Num` int(10) DEFAULT NULL,
-  `Tel_Ext` int(3) DEFAULT NULL,
-  `Email_Emp` varchar(40) DEFAULT NULL,
-  `ID_Tipo` int(11) NOT NULL
+  `nombre_emp` varchar(40) DEFAULT NULL,
+  `giro` varchar(40) DEFAULT NULL,
+  `direccion_emp` varchar(40) DEFAULT NULL,
+  `ape_paterno_rh` varchar(40) DEFAULT NULL,
+  `ape_materno_rh` varchar(40) DEFAULT NULL,
+  `nombres_rh` varchar(40) DEFAULT NULL,
+  `tel_lada` varchar(3) DEFAULT NULL,
+  `tel_num` varchar(10) DEFAULT NULL,
+  `tel_ext` varchar(3) DEFAULT NULL,
+  `email_emp` varchar(40) DEFAULT NULL,
+  `id_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`id`, `Nombre_Emp`, `Giro`, `Direccion_Emp`, `Ape_Paterno_RH`, `Ape_Materno_RH`, `Nombres_RH`, `Tel_Lada`, `Tel_Num`, `Tel_Ext`, `Email_Emp`, `ID_Tipo`) VALUES
-(1, 'WayaWeb', 'Servicios', 'Calle 46 Manzana 36 Lote 14 Región 102', 'Gomez', 'Gutierrez', 'Mireya', 998, 5643215, NULL, 'miyera.wayabe@live.com', 2),
-(2, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', 998, 5643215, NULL, 'mireya@wayaweb.com', 2),
-(3, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', 998, 5643215, NULL, 'mireya@wayaweb.com', 2),
-(4, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', 998, 5643215, NULL, 'mireya@wayaweb.com', 2),
-(5, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', 998, 5643215, 1, 'mireya@wayaweb.com', 2),
-(6, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', 998, 5643215, NULL, 'mireya@wayaweb.com', 2),
-(7, 'WayaWeb', 'Servicios', 'Arco Periférico', 'Rodríguez', 'Dominguez', 'Mireya', NULL, 8956125, NULL, 'mireya@wayaweb.com', 2);
+INSERT INTO `empresa` (`id`, `nombre_emp`, `giro`, `direccion_emp`, `ape_paterno_rh`, `ape_materno_rh`, `nombres_rh`, `tel_lada`, `tel_num`, `tel_ext`, `email_emp`, `id_tipo`) VALUES
+(1, 'WayaWeb', 'Servicios', 'Calle 46 Manzana 36 Lote 14 Región 102', 'Gomez', 'Gutierrez', 'Mireya', '998', '5643215', NULL, 'miyera.wayabe@live.com', 2),
+(2, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', '998', '5643215', NULL, 'mireya@wayaweb.com', 2),
+(3, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', '998', '5643215', NULL, 'mireya@wayaweb.com', 2),
+(4, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', '998', '5643215', NULL, 'mireya@wayaweb.com', 2),
+(5, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', '998', '5643215', '1', 'mireya@wayaweb.com', 2),
+(6, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Manuel', '998', '5643215', NULL, 'mireya@wayaweb.com', 2),
+(7, 'WayaWeb', 'Servicios', 'Arco Periférico', 'Rodríguez', 'Dominguez', 'Mireya', NULL, '8956125', NULL, 'mireya@wayaweb.com', 2),
+(8, 'WayaWeb', 'Servicios', 'Tu casa 1565', 'Pech', 'Galera', 'Mireya', NULL, '5643215', NULL, 'mireya@wayaweb.com', 2),
+(9, 'WayaWeb', 'Servicios', 'Tu calle 45', 'Rodríguez', 'Dominguez', 'Mireya', '998', '1577964', NULL, 'mireya@wayaweb.com', 2);
 
 -- --------------------------------------------------------
 
@@ -227,11 +235,11 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `formulario` (
   `id` int(11) NOT NULL,
-  `ID_Alumno` int(11) DEFAULT NULL,
-  `ID_Empresa` int(11) DEFAULT NULL,
-  `ID_Asesor_Emp` int(11) DEFAULT NULL,
-  `ID_Asesor_Aca` int(11) DEFAULT NULL,
-  `ID_Proyecto` int(11) DEFAULT NULL,
+  `id_alumno` int(11) DEFAULT NULL,
+  `id_empresa` int(11) DEFAULT NULL,
+  `id_asesor_emp` int(11) DEFAULT NULL,
+  `id_asesor_aca` int(11) DEFAULT NULL,
+  `id_proyecto` int(11) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -239,9 +247,11 @@ CREATE TABLE `formulario` (
 -- Volcado de datos para la tabla `formulario`
 --
 
-INSERT INTO `formulario` (`id`, `ID_Alumno`, `ID_Empresa`, `ID_Asesor_Emp`, `ID_Asesor_Aca`, `ID_Proyecto`, `status`) VALUES
+INSERT INTO `formulario` (`id`, `id_alumno`, `id_empresa`, `id_asesor_emp`, `id_asesor_aca`, `id_proyecto`, `status`) VALUES
 (1, 119, 6, 6, 6, 6, 1),
-(2, 120, 7, 7, 7, 7, 1);
+(2, 120, 7, 7, 7, 7, 1),
+(3, 121, 8, 8, 8, 8, 1),
+(4, 122, 9, 9, 9, 9, 1);
 
 -- --------------------------------------------------------
 
@@ -302,15 +312,15 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `procesos` (
-  `ID_Procesos` int(11) NOT NULL,
-  `Nombre_Proceso` varchar(40) NOT NULL
+  `id_procesos` int(11) NOT NULL,
+  `nombre_proceso` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `procesos`
 --
 
-INSERT INTO `procesos` (`ID_Procesos`, `Nombre_Proceso`) VALUES
+INSERT INTO `procesos` (`id_procesos`, `nombre_proceso`) VALUES
 (1, 'Estancías 1'),
 (2, 'Estancías 2'),
 (3, 'Estadía');
@@ -323,21 +333,23 @@ INSERT INTO `procesos` (`ID_Procesos`, `Nombre_Proceso`) VALUES
 
 CREATE TABLE `proyecto` (
   `id` int(11) NOT NULL,
-  `Nombre_Proyecto` varchar(40) DEFAULT NULL
+  `nombre_proyecto` varchar(40) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `proyecto`
 --
 
-INSERT INTO `proyecto` (`id`, `Nombre_Proyecto`) VALUES
+INSERT INTO `proyecto` (`id`, `nombre_proyecto`) VALUES
 (1, 'WDash'),
 (2, 'WDash'),
 (3, 'WDash'),
 (4, 'WDash'),
 (5, 'WDash'),
 (6, 'WDash'),
-(7, 'WDash');
+(7, 'WDash'),
+(8, 'WDash'),
+(9, 'Wdash');
 
 -- --------------------------------------------------------
 
@@ -347,17 +359,19 @@ INSERT INTO `proyecto` (`id`, `Nombre_Proyecto`) VALUES
 
 CREATE TABLE `respuesta` (
   `id` int(11) NOT NULL,
-  `ID_Usuario` int(11) UNSIGNED DEFAULT NULL,
-  `ID_Formulario` int(11) DEFAULT NULL
+  `id_usuario` int(11) UNSIGNED DEFAULT NULL,
+  `id_formulario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `respuesta`
 --
 
-INSERT INTO `respuesta` (`id`, `ID_Usuario`, `ID_Formulario`) VALUES
+INSERT INTO `respuesta` (`id`, `id_usuario`, `id_formulario`) VALUES
 (1, 1, 1),
-(2, 4, 2);
+(2, 4, 2),
+(3, 1, 3),
+(4, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -366,15 +380,15 @@ INSERT INTO `respuesta` (`id`, `ID_Usuario`, `ID_Formulario`) VALUES
 --
 
 CREATE TABLE `tipo` (
-  `ID_Tipo` int(11) NOT NULL,
-  `Nombre_Tipo` varchar(40) NOT NULL
+  `id_tipo` int(11) NOT NULL,
+  `nombre_tipo` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipo`
 --
 
-INSERT INTO `tipo` (`ID_Tipo`, `Nombre_Tipo`) VALUES
+INSERT INTO `tipo` (`id_tipo`, `nombre_tipo`) VALUES
 (1, 'Micro'),
 (2, 'Pequeña'),
 (3, 'Mediana'),
@@ -498,41 +512,41 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 --
 ALTER TABLE `alumno`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Proceso` (`ID_Procesos`),
-  ADD KEY `ID_Carrera` (`ID_Carrera`);
+  ADD KEY `ID_Proceso` (`id_procesos`),
+  ADD KEY `ID_Carrera` (`id_carrera`);
 
 --
 -- Indices de la tabla `asesor_academico`
 --
 ALTER TABLE `asesor_academico`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Cargo` (`ID_Cargo`);
+  ADD KEY `ID_Cargo` (`id_cargo`);
 
 --
 -- Indices de la tabla `asesor_empresarial`
 --
 ALTER TABLE `asesor_empresarial`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Cargo` (`ID_Cargo`);
+  ADD KEY `ID_Cargo` (`id_cargo`);
 
 --
 -- Indices de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  ADD PRIMARY KEY (`ID_Cargo`);
+  ADD PRIMARY KEY (`id_cargo`);
 
 --
 -- Indices de la tabla `carreras`
 --
 ALTER TABLE `carreras`
-  ADD PRIMARY KEY (`ID_Carrera`);
+  ADD PRIMARY KEY (`id_carrera`);
 
 --
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Tipo` (`ID_Tipo`);
+  ADD KEY `ID_Tipo` (`id_tipo`);
 
 --
 -- Indices de la tabla `failed_jobs`
@@ -546,11 +560,11 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `formulario`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Alumno` (`ID_Alumno`),
-  ADD KEY `ID_Empresa` (`ID_Empresa`),
-  ADD KEY `ID_Asesor_Emp` (`ID_Asesor_Emp`),
-  ADD KEY `ID_Asesor_Aca` (`ID_Asesor_Aca`),
-  ADD KEY `ID_Proyecto` (`ID_Proyecto`);
+  ADD KEY `ID_Alumno` (`id_alumno`),
+  ADD KEY `ID_Empresa` (`id_empresa`),
+  ADD KEY `ID_Asesor_Emp` (`id_asesor_emp`),
+  ADD KEY `ID_Asesor_Aca` (`id_asesor_aca`),
+  ADD KEY `ID_Proyecto` (`id_proyecto`);
 
 --
 -- Indices de la tabla `migrations`
@@ -576,7 +590,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indices de la tabla `procesos`
 --
 ALTER TABLE `procesos`
-  ADD PRIMARY KEY (`ID_Procesos`);
+  ADD PRIMARY KEY (`id_procesos`);
 
 --
 -- Indices de la tabla `proyecto`
@@ -589,14 +603,14 @@ ALTER TABLE `proyecto`
 --
 ALTER TABLE `respuesta`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `ID_Usuario` (`ID_Usuario`),
-  ADD KEY `ID_Formulario` (`ID_Formulario`);
+  ADD KEY `ID_Usuario` (`id_usuario`),
+  ADD KEY `ID_Formulario` (`id_formulario`);
 
 --
 -- Indices de la tabla `tipo`
 --
 ALTER TABLE `tipo`
-  ADD PRIMARY KEY (`ID_Tipo`);
+  ADD PRIMARY KEY (`id_tipo`);
 
 --
 -- Indices de la tabla `users`
@@ -612,37 +626,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT de la tabla `asesor_academico`
 --
 ALTER TABLE `asesor_academico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `asesor_empresarial`
 --
 ALTER TABLE `asesor_empresarial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `ID_Cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_cargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `carreras`
 --
 ALTER TABLE `carreras`
-  MODIFY `ID_Carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_carrera` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -654,7 +668,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `formulario`
 --
 ALTER TABLE `formulario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -672,25 +686,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de la tabla `procesos`
 --
 ALTER TABLE `procesos`
-  MODIFY `ID_Procesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_procesos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `ID_Tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -719,7 +733,7 @@ ALTER TABLE `asesor_academico`
 -- Filtros para la tabla `asesor_empresarial`
 --
 ALTER TABLE `asesor_empresarial`
-  ADD CONSTRAINT `asesor_empresarial_ibfk_2` FOREIGN KEY (`ID_Cargo`) REFERENCES `cargo` (`ID_Cargo`);
+  ADD CONSTRAINT `asesor_empresarial_ibfk_2` FOREIGN KEY (`id_cargo`) REFERENCES `cargo` (`ID_Cargo`);
 
 --
 -- Filtros para la tabla `empresa`
