@@ -19,82 +19,121 @@ class CedulaController extends Controller
 {
     public function store(Request $request) {
         
+        $request->validate([
+            'ape_paterno' => 'required|max:40',
+            'ape_materno' => 'required|max:40',
+            'nombres' => 'required|max:40',
+            'tel' => 'required|numeric|max:10',
+            'matricula' => 'required|max:40',
+            'email_per' => 'required|max:40',
+            'email' => 'required|max:40',
+            'no_ss' => 'required|max:20',
+            'direccion' => 'required|max:100',
+
+            'nombre_emp' => 'required|max:40',
+            'giro' => 'required|max:40',
+            'direccion_emp' => 'required|max:40',
+            'ape_paterno_rh' => 'required|max:40',
+            'ape_materno_rh' => 'required|max:40',
+            'nombres_rh' => 'required|max:40',
+            'tel_lada' => 'nullable|numeric|min:3',
+            'tel_num' => 'required|numeric|min:10',
+            'tel_ext' => 'nullable|min:3',
+            'email_emp' => 'required|max:40',
+
+            'ape_paterno_ae' => 'required|max:40',
+            'ape_materno_ae' => 'required|max:40',
+            'nombres_ae' => 'required|max:40',
+            'tel_lada_ae' => 'nullable|numeric|max:3',
+            'tel_num_ae' => 'required|numeric|min:10',
+            'email_ae' => 'required|max:40',
+
+            'ape_paterno_aa' => 'required|max:40',
+            'ape_materno_aa' => 'required|max:40',
+            'nombres_aa' => 'required|max:40',
+            'tel_lada_aa' => 'nullable|numeric|max:3',
+            'tel_num_aa' => 'required|numeric|min:10',
+            'email_aa' => 'required|max:40',
+
+            'nombre_proyecto' => 'required|max:40'
+        ]);
+        
         $arrayResult = array();
 
         try{
             
-            $ape_paterno        = $request->input('Ape_Paterno');
-            $ape_materno        = $request->input('Ape_Materno');
-            $nombres            = $request->input('Nombres');
-            $tel                = $request->input('Tel');
-            $matricula          = $request->input('Matricula');
-            $email_per          = $request->input('Email_Per');
-            $email              = $request->input('Email');
-            $no_ss              = $request->input('No_SS');
-            $direccion          = $request->input('Direccion');
-            $procesos           = json_decode( $request->input('ID_Procesos') );
-            $carrera            = json_decode( $request->input('ID_Carrera') );
+            $ape_paterno        = $request->input('ape_paterno');
+            $ape_materno        = $request->input('ape_materno');
+            $nombres            = $request->input('nombres');
+            $tel                = $request->input('tel');
+            $matricula          = $request->input('matricula');
+            $email_per          = $request->input('email_per');
+            $email              = $request->input('email');
+            $no_ss              = $request->input('no_ss');
+            $direccion          = $request->input('direccion');
+            $procesos           = json_decode( $request->input('id_procesos') );
+            $carrera            = json_decode( $request->input('id_carrera') );
 
-            $nombre_emp         = $request->input('Nombre_Emp');
-            $giro               = $request->input('Giro');
-            $direccion_emp      = $request->input('Direccion_Emp');
-            $ape_paternorh      = $request->input('Ape_Paterno_RH');
-            $ape_maternorh      = $request->input('Ape_Materno_RH');
-            $nombresrh          = $request->input('Nombres_RH');
-            $tel_lada           = $request->input('Tel_Lada');
-            $tel_num            = $request->input('Tel_Num');
-            $tel_ext            = $request->input('Tel_Ext');
-            $email_emp          = $request->input('Email_Emp');
-            $tipo               = json_decode( $request->input('ID_Tipo') );
+            $nombre_emp         = $request->input('nombre_emp');
+            $giro               = $request->input('giro');
+            $direccion_emp      = $request->input('direccion_emp');
+            $ape_paternorh      = $request->input('ape_paterno_rh');
+            $ape_maternorh      = $request->input('ape_materno_rh');
+            $nombresrh          = $request->input('nombres_rh');
+            $tel_lada           = $request->input('tel_lada');
+            $tel_num            = $request->input('tel_num');
+            $tel_ext            = $request->input('tel_ext');
+            $email_emp          = $request->input('email_emp');
+            $tipo               = json_decode( $request->input('id_tipo') );
 
-            $ape_paterno_ae     = $request->input('Ape_Paterno_AE');
-            $ape_materno_ae     = $request->input('Ape_Materno_AE');
-            $nombres_ae         = $request->input('Nombres_AE');
-            $tel_lada_ae        = $request->input('Tel_Lada_AE');
-            $tel_num_ae         = $request->input('Tel_Num_AE');
-            $email_ae           = $request->input('Email_AE');
-            $cargo              = json_decode( $request->input('ID_Cargo') );
+            $ape_paterno_ae     = $request->input('ape_paterno_ae');
+            $ape_materno_ae     = $request->input('ape_materno_ae');
+            $nombres_ae         = $request->input('nombres_ae');
+            $tel_lada_ae        = $request->input('tel_lada_ae');
+            $tel_num_ae         = $request->input('tel_num_ae');
+            $email_ae           = $request->input('email_ae');
+            $cargo              = json_decode( $request->input('id_cargo') );
 
-            $ape_paterno_aa     = $request->input('Ape_Paterno_AA');
-            $ape_materno_aa     = $request->input('Ape_Materno_AA');
-            $nombres_aa         = $request->input('Nombres_AA');
-            $tel_lada_aa        = $request->input('Tel_Lada_AA');
-            $tel_num_aa         = $request->input('Tel_Num_AA');
-            $email_aa           = $request->input('Email_AA');
-            $cargo              = json_decode( $request->input('ID_Cargo') );
+            $ape_paterno_aa     = $request->input('ape_paterno_aa');
+            $ape_materno_aa     = $request->input('ape_materno_aa');
+            $nombres_aa         = $request->input('nombres_aa');
+            $tel_lada_aa        = $request->input('tel_lada_aa');
+            $tel_num_aa         = $request->input('tel_num_aa');
+            $email_aa           = $request->input('email_aa');
+            $cargo              = json_decode( $request->input('id_cargo') );
 
-            $nombre_pro         = $request->input('Nombre_Proyecto');
+            $nombre_pro         = $request->input('nombre_proyecto');
 
             /*$currentDate = date("Y-m-d H:i:s");*/
 
             $data = array(
-                'Ape_Paterno'   => $ape_paterno,
-                'Ape_Materno'   => $ape_materno,
-                'Nombres'       => $nombres,
-                'Tel'           => $tel,
-                'Matricula'     => $matricula,
-                'Email_Per'     => $email_per,
-                'Email'         => $email,
-                'No_SS'         => $no_ss,
-                'Direccion'     => $direccion,
-                'ID_Procesos'   => $procesos,
-                'ID_Carrera'    => $carrera
+                'ape_paterno'   => $ape_paterno,
+                'ape_materno'   => $ape_materno,
+                'nombres'       => $nombres,
+                'tel'           => $tel,
+                'matricula'     => $matricula,
+                'email_per'     => $email_per,
+                'email'         => $email,
+                'no_ss'         => $no_ss,
+                'direccion'     => $direccion,
+                'id_procesos'   => $procesos,
+                'id_carrera'    => $carrera
             );
 
             $response_alumno = Alumno::requestInsertAlumno($data);
             
             $data2 = array(
-                'Nombre_Emp'    => $nombre_emp,
-                'Giro'          => $giro,
-                'Direccion_Emp' => $direccion_emp,
-                'Ape_Paterno_RH'=> $ape_paternorh,
-                'Ape_Materno_RH'=> $ape_maternorh,
-                'Nombres_RH'    => $nombresrh,
-                'Tel_Lada'      => $tel_lada,
-                'Tel_Num'       => $tel_num,
-                'Tel_Ext'       => $tel_ext,
-                'Email_Emp'     => $email_emp,
-                'ID_Tipo'       => $tipo,
+                'nombre_emp'    => $nombre_emp,
+                'giro'          => $giro,
+                'direccion_emp' => $direccion_emp,
+                'ape_paterno_rh'=> $ape_paternorh,
+                'ape_materno_rh'=> $ape_maternorh,
+                'nombres_rh'    => $nombresrh,
+                'tel_lada'      => $tel_lada,
+                'tel_num'       => $tel_num,
+                'tel_ext'       => $tel_ext,
+                'email_emp'     => $email_emp,
+                'id_tipo'       => $tipo,
                 //'ID_Alumno'     => $response_alumno['id']
             );
 
@@ -117,13 +156,13 @@ class CedulaController extends Controller
                         ),
                     );
                     $data3 = array(
-                        'Ape_Paterno_AE'=> $ape_paterno_ae,
-                        'Ape_Materno_AE'=> $ape_materno_ae,
-                        'Nombres_AE'    => $nombres_ae,
-                        'Tel_Lada_AE'   => $tel_lada_ae,
-                        'Tel_Num_AE'    => $tel_num_ae,
-                        'Email_AE'      => $email_ae,
-                        'ID_Cargo'      => $cargo,
+                        'ape_paterno_ae'=> $ape_paterno_ae,
+                        'ape_materno_ae'=> $ape_materno_ae,
+                        'nombres_ae'    => $nombres_ae,
+                        'tel_lada_ae'   => $tel_lada_ae,
+                        'tel_num_ae'    => $tel_num_ae,
+                        'email_ae'      => $email_ae,
+                        'id_cargo'      => $cargo,
                         //'ID_Alumno'     => $response_alumno['id']
                     );
                     
@@ -150,13 +189,13 @@ class CedulaController extends Controller
 
                     $data4 = array(
 
-                        'Ape_Paterno_AA'=> $ape_paterno_aa,
-                        'Ape_Materno_AA'=> $ape_materno_aa,
-                        'Nombres_AA'    => $nombres_aa,
-                        'Tel_Lada_AA'   => $tel_lada_aa,
-                        'Tel_Num_AA'    => $tel_num_aa,
-                        'Email_AA'      => $email_aa,
-                        'ID_Cargo'      => $cargo,
+                        'ape_paterno_aa'=> $ape_paterno_aa,
+                        'ape_materno_aa'=> $ape_materno_aa,
+                        'nombres_aa'    => $nombres_aa,
+                        'tel_lada_aa'   => $tel_lada_aa,
+                        'tel_num_aa'    => $tel_num_aa,
+                        'email_aa'      => $email_aa,
+                        'id_cargo'      => $cargo,
                         //'ID_Alumno'     => $response_alumno['id']
                     );
 
@@ -195,7 +234,7 @@ class CedulaController extends Controller
 
                 $data5 = array(
 
-                    'Nombre_Proyecto'   => $nombre_pro,
+                    'nombre_proyecto'   => $nombre_pro,
                     //'ID_Alumno'         => $response_alumno['id']
                 );
 
@@ -221,11 +260,11 @@ class CedulaController extends Controller
                 }
 
                 $data6 = array(
-                    'ID_Alumno'     =>  $response_alumno['id'],
-                    'ID_Empresa'    =>  $response_empresa['id'],
-                    'ID_Asesor_Emp' =>  $response_asesor_emp['id'],
-                    'ID_Asesor_Aca' =>  $response_asesor_aca['id'],
-                    'ID_Proyecto'   =>  $response_proyecto['id'],
+                    'id_alumno'     =>  $response_alumno['id'],
+                    'id_empresa'    =>  $response_empresa['id'],
+                    'id_asesor_emp' =>  $response_asesor_emp['id'],
+                    'id_asesor_aca' =>  $response_asesor_aca['id'],
+                    'id_proyecto'   =>  $response_proyecto['id'],
                     'status'        =>  1
                 );
 
@@ -251,8 +290,8 @@ class CedulaController extends Controller
                 }
 
                 $data7 = array(
-                    'ID_Usuario'    => Auth::user()->id,
-                    'ID_Formulario' => $response_formulario['id']
+                    'id_usuario'    => Auth::user()->id,
+                    'id_formulario' => $response_formulario['id']
                 );
 
                 $response_respuesta = Respuesta::requestInsertRespuesta($data7);

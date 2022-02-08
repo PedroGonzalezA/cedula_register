@@ -55,7 +55,7 @@ class Alumno extends Model
         }catch (Exception $e) {
             $arrayResponse = array(
                 "code"      => 500,
-                "message"   => "Ocurrió un error al intentar agregar el registro. Error" . $e->getMessage()
+                "message"   => "Ocurrio un error al intentar agregar el registro. Error" . $e->getMessage()
             );
         }
 
