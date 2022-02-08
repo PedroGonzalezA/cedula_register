@@ -11,13 +11,6 @@ class Empresa extends Model
 {
     protected $table = 'empresa';
 
-    public static function getAllEmpresa() {
-        return \DB::table('empresa')
-            ->join('Alumno', 'Empresa.ID_Alumno', '=', 'ID_Alumno')
-            ->select('Empresa.*', 'Alumno.email as alumno_name')
-            ->get();
-    }
-
     /**
      * LLamada a la peticion para agregar un nuevo marcador
      * Tambien devuelve la llamada si Ocurrió algun error
@@ -61,7 +54,7 @@ class Empresa extends Model
         }catch (Exception $e) {
             $arrayResponse = array(
                 "code"      => 500,
-                "message"   => "Ocurrió un error al intentar agregar el registro. Error" . $e->getMessage()
+                "message"   => "Ocurrio un error al intentar agregar el registro. Error" . $e->getMessage()
             );
         }
 

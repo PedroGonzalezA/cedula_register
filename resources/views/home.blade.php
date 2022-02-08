@@ -15,6 +15,12 @@
 
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
+    <style>
+        .border-red-500 { border-color: #f56565; }
+        .text-red-600 { color: #e53e3e; }
+        .bg-red-200 { background-color: #fed7d7; }
+    </style>
+
     <script>
    function onSubmit(token) {
      document.getElementById("form-login").submit();
@@ -70,23 +76,35 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno" id="" placeholder="Apellido Paterno" required>
+                    <input type="text" class="form-control" name="ape_paterno" id="ape_paterno" placeholder="Apellido Paterno" required>
                 </div>
+                @error('ape_paterno')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno" id="" placeholder="Apellido Materno" required>
+                    <input type="text" class="form-control" name="ape_materno" id="ape_materno" placeholder="Apellido Materno" required>
                 </div>
+                @error('ape_materno')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres" id="" placeholder="Nombre[s]" required>
+                    <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombre[s]" required>
                 </div>
+                @error('nombres')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-6">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="Tel" id="" required>
+                    <input type="text" class="form-control" name="tel" id="tel" required>
                 </div>
+                @error('tel')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-6">
                     <label for="">Proceso:</label>
-                    <select class="form-control" name="ID_Procesos" id="">
+                    <select class="form-control" name="id_procesos" id="">
                         <option value="1">Estancia 1</option>
                         <option value="2">Estancia 2</option>
                         <option value="3">Estadía</option>
@@ -94,11 +112,14 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Matrícula:</label>
-                    <input type="text" class="form-control" name="Matricula" id="" placeholder="ejem: 2018..." required>
+                    <input type="text" class="form-control" name="matricula" id="matricula" placeholder="ejem: 2018..." required>
                 </div>
+                @error('matricula')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-6">
                     <label for="">Carrera:</label>
-                    <select class="form-control" name="ID_Carrera" id="" aria-label="">
+                    <select class="form-control" name="id_carrera" id="" aria-label="">
                         <option value="1">Ing. Biomédica</option>
                         <option value="2">Ing. Biotecnología</option>
                         <option value="3">Ing. Financiera</option>
@@ -110,20 +131,32 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" name="Email_Per" id="" placeholder="Personal" required>
+                    <input type="email" class="form-control" name="email_per" id="email_per" placeholder="Personal" required>
                 </div>
+                @error('email_per')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-6">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" name="Email" id="" placeholder="UPQROO" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="UPQROO" required>
                 </div>
+                @error('email')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-4">
                     <label for="">N°. Seguridad Social:</label>
-                    <input type="text" class="form-control" name="No_SS" id="" placeholder="" required>
+                    <input type="text" class="form-control" name="no_ss" id="no_ss" placeholder="" required>
                 </div>
+                @error('no_ss')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-8">
                     <label for="">Dirección:</label>
-                    <input type="text" class="form-control" name="Direccion" id="" placeholder="1234 Calle Prin." required>
+                    <input type="text" class="form-control" name="direccion" id="direccion" placeholder="1234 Calle Prin." required>
                 </div>
+                @error('direccion')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form-row">
                 <div class="col-12 row-color margin-bottom">
@@ -131,15 +164,21 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Nombre_Emp" id="" placeholder="Nombre Comercial o Publico" required>
+                    <input type="text" class="form-control" name="nombre_emp" id="nombre_emp" placeholder="Nombre Comercial o Publico" required>
                 </div>
+                @error('nombre_emp')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">Giro:</label>
-                    <input type="text" class="form-control" name="Giro" id="" placeholder="Ejemplo: Servicios" required>
+                    <input type="text" class="form-control" name="giro" id="giro" placeholder="Ejemplo: Servicios" required>
                 </div>
+                @error('giro')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">Tipo:</label>
-                    <select name="ID_Tipo" id="" class="form-control">
+                    <select name="id_tipo" id="id_tipo" class="form-control">
                         <option value="1">Micro</option>
                         <option value="2">Pequeña</option>
                         <option value="3">Mediana</option>
@@ -148,36 +187,60 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="">Dirección:</label>
-                    <input type="text" class="form-control" name="Direccion_Emp" id="" placeholder="1234 Calle Prin." required>
+                    <input type="text" class="form-control" name="direccion_emp" id="direccion_emp" placeholder="1234 Calle Prin." required>
                 </div>
+                @error('direccion_emp')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-4">
                     <label for="">Responsable de Recursos Humanos:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno_RH" id="" placeholder="Apellido Paterno" required>
+                    <input type="text" class="form-control" name="ape_paterno_rh" id="ape_paterno_rh" placeholder="Apellido Paterno" required>
                 </div>
+                @error('ape_paterno_rh')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno_RH" id="" placeholder="Apellido Materno" required>
+                    <input type="text" class="form-control" name="ape_materno_rh" id="ape_materno_rh" placeholder="Apellido Materno" required>
                 </div>
+                @error('ape_materno_rh')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-4">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres_RH" id="" placeholder="Nombre[s]" required>
+                    <input type="text" class="form-control" name="nombres_rh" id="nombres_rh" placeholder="Nombre[s]" required>
                 </div>
+                @error('nombres_rh')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-1">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="Tel_Lada" id="" placeholder="Lada">
+                    <input type="text" class="form-control" name="tel_lada" id="tel_lada" placeholder="Lada">
                 </div>
+                @error('tel_lada')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Num" id="" placeholder="Número" required>
+                    <input type="text" class="form-control" name="tel_num" id="tel_num" placeholder="Número" required>
                 </div>
+                @error('tel_num')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-1">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Ext" id="" placeholder="Ext.">
+                    <input type="text" class="form-control" name="tel_ext" id="tel_ext" placeholder="Ext.">
                 </div>
+                @error('tel_ext')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-7">
                     <label for="">E-mail:</label>
-                    <input type="email" class="form-control" name="Email_Emp" id="" placeholder="Email empresa" required>
+                    <input type="email" class="form-control" name="email_emp" id="email_emp" placeholder="Email empresa" required>
                 </div>
+                @error('email_emp')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form-row">
                 <div class="col-12 row-color margin-bottom">
@@ -185,19 +248,28 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno_AE" id="" placeholder="Apellido Paterno" required>
+                    <input type="text" class="form-control" name="ape_paterno_ae" id="ape_paterno_ae" placeholder="Apellido Paterno" required>
                 </div>
+                @error('ape_paterno_ae')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno_AE" id="" placeholder="Apellido Materno" required>
+                    <input type="text" class="form-control" name="ape_materno_ae" id="ape_materno_ae" placeholder="Apellido Materno" required>
                 </div>
+                @error('ape_materno_ae')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres_AE" id="" placeholder="Nombre[s]" required>
+                    <input type="text" class="form-control" name="nombres_ae" id="nombres_ae" placeholder="Nombre[s]" required>
                 </div>
+                @error('nombres_ae')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">Cargo:</label>
-                    <select class="form-control" name="ID_Cargo" id="">
+                    <select class="form-control" name="id_cargo" id="id_cargo">
                         <option value="1">Lic.</option>
                         <option value="2">Ing.</option>
                         <option value="3">Mtro.</option>
@@ -211,16 +283,25 @@
                 </div>
                 <div class="form-group col-md-1">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="Tel_Lada_AE" id="" placeholder="Lada">
+                    <input type="text" class="form-control" name="tel_lada_ae" id="tel_lada_ae" placeholder="Lada">
                 </div>
+                @error('tel_lada_ae')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Num_AE" id="" placeholder="Número" required>
+                    <input type="text" class="form-control" name="tel_num_ae" id="tel_num_ae" placeholder="Número" required>
                 </div>
+                @error('tel_num_ae')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="email" class="form-control" name="Email_AE" id="" placeholder="E-mail">
+                    <input type="email" class="form-control" name="email_ae" id="email_ae" placeholder="E-mail">
                 </div>
+                @error('email_ae')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <!--<div class="form-group col">
                     <label for="">Firma:</label>
                     <canvas id="cnv" class="form-control col-12" name="cnv" height="20" style="background-color: #fff; border-bottom: 1px solid black;"></canvas>
@@ -232,19 +313,28 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Ape_Paterno_AA" id="" placeholder="Apellido Paterno" required>
+                    <input type="text" class="form-control" name="ape_paterno_aa" id="ape_paterno_aa" placeholder="Apellido Paterno" required>
                 </div>
+                @error('ape_paterno_aa')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Ape_Materno_AA" id="" placeholder="Apellido Materno" required>
+                    <input type="text" class="form-control" name="ape_materno_aa" id="ape_materno_aa" placeholder="Apellido Materno" required>
                 </div>
+                @error('ape_paterno_aa')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Nombres_AA" id="" placeholder="Nombre[s]" required>
+                    <input type="text" class="form-control" name="nombres_aa" id="nombres_aa" placeholder="Nombre[s]" required>
                 </div>
+                @error('nombres_aa')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">Cargo:</label>
-                    <select class="form-control" name="ID_Cargo" id="">
+                    <select class="form-control" name="id_cargo" id="id_cargo">
                         <option value="1">Lic.</option>
                         <option value="2">Ing.</option>
                         <option value="3">Mtro.</option>
@@ -258,16 +348,25 @@
                 </div>
                 <div class="form-group col-md-1">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="Tel_Lada_AA" id="" placeholder="Lada">
+                    <input type="text" class="form-control" name="tel_lada_aa" id="tel_lada_aa" placeholder="Lada">
                 </div>
+                @error('tel_lada_aa')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="text" class="form-control" name="Tel_Num_AA" id="" placeholder="Número" required>
+                    <input type="text" class="form-control" name="tel_num_aa" id="tel_num_aa" placeholder="Número" required>
                 </div>
+                @error('tel_num_aa')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <div class="form-group col-md-3">
                     <label for="">&nbsp;</label>
-                    <input type="email" class="form-control" name="Email_AA" id="" placeholder="E-mail">
+                    <input type="email" class="form-control" name="email_aa" id="email_aa" placeholder="E-mail">
                 </div>
+                @error('email_aa')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <!--<div class="form-group col">
                     <label for="">Firma:</label>
                     <canvas id="cnv" class="form-control col-12" name="cnv" height="20" style="background-color: #fff; border-bottom: 1px solid black;"></canvas>
@@ -279,8 +378,11 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" name="Nombre_Proyecto" id="" placeholder="Nombre Proyecto" required>
+                    <input type="text" class="form-control" name="nombre_proyecto" id="nombre_proyecto" placeholder="Nombre Proyecto" required>
                 </div>
+                @error('nombre_proyecto')
+                    <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
+                @enderror
                 <!--<div class="form-group row justify-content-md-center">
                     <div class="col-md-auto">
                         <div class="input-group">
@@ -304,5 +406,10 @@
             kajksjaksj
         @endif
     </div>
+
+    @push('js')
+        <script src="{{ asset('js/general_validation.js') }}"></script>
+    @endpush
 </body>
+
 </html>

@@ -14,8 +14,8 @@ class Respuesta extends Model
 
     public static function getAllRespuesta() {
         return \DB::table('respuesta')
-                    ->join('users', 'users.id', '=', 'Respuesta.ID_Usuario')
-                    ->join('Formulario', 'Formulario.id', '=', 'Respuesta.ID_Formulario')
+                    ->join('users', 'users.id', '=', 'respuesta.id_usuario')
+                    ->join('formulario', 'formulario.id', '=', 'respuesta.id_formulario')
                     ->select('users.name', 'formulario.status')
                     ->get();
     }
@@ -63,7 +63,7 @@ class Respuesta extends Model
         }catch (Exception $e) {
             $arrayResponse = array(
                 "code"      => 500,
-                "message"   => "Ocurrió un error al intentar agregar el registro. Error" . $e->getMessage()
+                "message"   => "Ocurrio un error al intentar agregar el registro. Error" . $e->getMessage()
             );
         }
 
