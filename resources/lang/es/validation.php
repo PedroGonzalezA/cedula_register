@@ -147,7 +147,31 @@ return [
     */
 
     'attributes' => [
-        'tel' => 'telefono' 
+        'tel' => 'teléfono',
+        'tel_lada' => 'teléfono lada',
+        'ape_paterno' => 'apellido paterno',
+        'ape_materno' => 'apellido materno',
+        'ape_paterno_rh' => 'apellido paterno',
+        'ape_materno_rh' => 'apellido materno',
+        'nombres_rh' => 'nombres',
+        'no_ss' => 'numero de seguridad social',
+        'tel_num' => 'teléfono',
+        'tel_ext' => 'extensión',
+        'email_per' => 'email personal',
+        'email_emp' => 'email empresa',
+        'ape_paterno_ae' => 'apellido paterno',
+        'ape_materno_ae' => 'apellido materno',
+        'nombres_ae' => 'nombres',
+        'ape_paterno_aa' => 'apellido paterno',
+        'ape_materno_aa' => 'apellido materno',
+        'nombres_aa' => 'nombres',
+        'tel_lada_ae' => 'teléfono lada',
+        'tel_num_ae' => 'teléfono',
+        'email_ae' => 'email asesor empresarial',
+        'tel_lada_aa' => 'teléfono lada',
+        'tel_num_aa' => 'teléfono',
+        'email_aa' => 'email asesor academico',
+        'nombre_proyecto' => 'nombre del proyecto'
     ],
 
 ];
