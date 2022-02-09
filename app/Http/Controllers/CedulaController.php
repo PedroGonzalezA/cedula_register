@@ -23,39 +23,39 @@ class CedulaController extends Controller
             'ape_paterno' => 'required|max:40',
             'ape_materno' => 'required|max:40',
             'nombres' => 'required|max:40',
-            'tel' => 'required|numeric|min:10',
+            'tel' => 'required|min:10|numeric',
             'matricula' => 'required|max:40',
-            'email_per' => 'required|max:40',
-            'email' => 'required|max:40',
-            'no_ss' => 'required|max:20',
-            'direccion' => 'required|max:100',
+            'email_per' => 'required|email|max:40',
+            'email' => 'required|email|max:40',
+            'no_ss' => 'required|min:11|numeric',
+            'direccion' => 'required|max:255',
 
-            'nombre_emp' => 'required|max:40',
+            'nombre_emp' => 'required|max:100',
             'giro' => 'required|max:40',
             'direccion_emp' => 'required|max:40',
             'ape_paterno_rh' => 'required|max:40',
             'ape_materno_rh' => 'required|max:40',
             'nombres_rh' => 'required|max:40',
-            'tel_lada' => 'nullable|numeric|min:3',
-            'tel_num' => 'required|numeric|min:10',
-            'tel_ext' => 'nullable|min:3',
+            'tel_lada' => 'nullable|min:3|numeric',
+            'tel_num' => 'required|min:10|numeric',
+            'tel_ext' => 'nullable|min:3|numeric',
             'email_emp' => 'required|max:40',
 
             'ape_paterno_ae' => 'required|max:40',
             'ape_materno_ae' => 'required|max:40',
             'nombres_ae' => 'required|max:40',
-            'tel_lada_ae' => 'nullable|numeric|max:3',
-            'tel_num_ae' => 'required|numeric|min:10',
+            'tel_lada_ae' => 'nullable|max:3|numeric',
+            'tel_num_ae' => 'required|min:10|numeric',
             'email_ae' => 'required|max:40',
 
             'ape_paterno_aa' => 'required|max:40',
             'ape_materno_aa' => 'required|max:40',
             'nombres_aa' => 'required|max:40',
-            'tel_lada_aa' => 'nullable|numeric|max:3',
-            'tel_num_aa' => 'required|numeric|min:10',
+            'tel_lada_aa' => 'nullable|max:3|numeric',
+            'tel_num_aa' => 'required|min:10|numeric',
             'email_aa' => 'required|max:40',
 
-            'nombre_proyecto' => 'required|max:40'
+            'nombre_proyecto' => 'required|max:255'
         ]);
         
         $arrayResult = array();
