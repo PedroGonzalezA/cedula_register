@@ -23,7 +23,7 @@ class CedulaController extends Controller
             'ape_paterno' => 'required|max:40',
             'ape_materno' => 'required|max:40',
             'nombres' => 'required|max:40',
-            'tel' => 'required|numeric|max:10',
+            'tel' => 'required|numeric|min:10',
             'matricula' => 'required|max:40',
             'email_per' => 'required|max:40',
             'email' => 'required|max:40',
