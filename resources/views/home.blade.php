@@ -283,7 +283,7 @@
                 </div>
                 <div class="form-group col-md-1">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="tel_lada_ae" id="tel_lada_ae" placeholder="Lada">
+                    <input type="text" class="form-control" name="tel_lada_ae" id="tel_lada_ae" placeholder="Ej:052">
                 </div>
                 @error('tel_lada_ae')
                     <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
@@ -348,7 +348,7 @@
                 </div>
                 <div class="form-group col-md-1">
                     <label for="">Tel:</label>
-                    <input type="text" class="form-control" name="tel_lada_aa" id="tel_lada_aa" placeholder="Lada">
+                    <input type="text" class="form-control" name="tel_lada_aa" id="tel_lada_aa" placeholder="Ej:052">
                 </div>
                 @error('tel_lada_aa')
                     <p class="border border-red-500 rounded-md bg-red-200 w-full text-red-600 p-2 my-2">{{ $message }}</p>
