@@ -23,7 +23,7 @@ class CedulaController extends Controller
             'ape_paterno' => 'required|max:40',
             'ape_materno' => 'required|max:40',
             'nombres' => 'required|max:40',
-            'tel' => 'required|min:10|numeric',
+            'tel' => 'required|digits:10',
             'matricula' => 'required|max:40',
             'email_per' => 'required|email|max:40',
             'email' => 'required|email|max:40',
@@ -44,15 +44,15 @@ class CedulaController extends Controller
             'ape_paterno_ae' => 'required|max:40',
             'ape_materno_ae' => 'required|max:40',
             'nombres_ae' => 'required|max:40',
-            'tel_lada_ae' => 'nullable|max:3|numeric',
-            'tel_num_ae' => 'required|min:10|numeric',
+            'tel_lada_ae' => 'nullable|digits:3',
+            'tel_num_ae' => 'required|digits:10',
             'email_ae' => 'required|max:40',
 
             'ape_paterno_aa' => 'required|max:40',
             'ape_materno_aa' => 'required|max:40',
             'nombres_aa' => 'required|max:40',
-            'tel_lada_aa' => 'nullable|max:3|numeric',
-            'tel_num_aa' => 'required|min:10|numeric',
+            'tel_lada_aa' => 'nullable|digits:3',
+            'tel_num_aa' => 'required|digits:10',
             'email_aa' => 'required|max:40',
 
             'nombre_proyecto' => 'required|max:255'
