@@ -1,8 +1,8 @@
 /*========= Importando hojas de estilo =========*/
 /* Bootstrap 3.3.7 */
-@import url('./bootstrap.min.css');
+/*@import url('./bootstrap.min.css');*/
 /* Material desing for Bootstrap */
-@import url('./bootstrap-material-design.min.css');
+/*@import url('./bootstrap-material-design.min.css');/*
 @import url('./ripples.min.css');
 /* Sweet Alert 2 */
 @import url('./sweetalert2.css');
@@ -254,60 +254,84 @@ body, html{
 	background-color: #FFF;
 	color: #333;
 }
-/*============ Area de notificaciones*/
-.Notifications-area{
-	height: 100%;
-	position: fixed;
-	z-index: 99;
-	transition: all .3s ease-in-out;
-	overflow: hidden;
-	opacity: 0;
-	pointer-events: none;
+
+.archivo{
 }
-.Notifications-bg,
-.Notifications-body{
-	height: 100%;
-	position: absolute;
-	top: 0;
-	right: 0;
+
+.btnSubir{
+	font-size: 12px;
 }
-.Notifications-bg{
-	z-index: 1;
-	background-color: rgba(0, 0, 0, .7);
+.btnDescargar{
+	font-size: 12px;
 }
-.Notifications-body{
-	z-index: 2;
-	background-color: #FFF;
-	width: 100%;
-	max-width: 300px;
-	transform: translateX(300px);
-	transition: all .3s ease-in-out;
+.btnLlenar{
+	font-size: 11px;
+	width: 140px;
 }
-.Notifications-body-title,
-.Notifications-body-title > i{
-	height: 50px;
-	line-height: 50px;
+.btnFormato{
 	font-size: 20px;
+	height: 200px;
+	width:100%;
 }
-.Notifications-body-title{
-	background-color: #FF5722;
-	color: #fff;
-	position: relative;
+.lista{
+	width: 100%;
+	font-size: 15px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }
-.Notifications-body-title > i{
-	position: absolute;
-	top: 0;
-	left: 0;
-	cursor: pointer;
-	width: 50px;
+.colDescargar{
+	text-align: start;
 }
-.show-Notification-area{
-	opacity: 1 !important;
-	pointer-events: auto !important;
+.colArchivo{
+	text-align: end;
 }
-.show-Notification-area > .Notifications-body{
-	transform: translateX(0) !important;
+.colLlenar{
+	text-align: start;
 }
+.divObservacionf02{
+	background-color: red;
+	color: white;
+	width: 110px;
+	height: 30px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  
+	border-radius:5px ;
+}
+.divPendientef02{
+	background-color: orange;
+	color: white;
+	height: 30px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  
+	border-radius:5px ;
+}
+
+.divAceptadof02{
+	background-color: green;
+	color: white;
+	height: 30px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  
+	border-radius:5px ;
+}
+
+.observaciones{
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 /*============ Estilos home*/
 .tile{
 	max-width: 300px;

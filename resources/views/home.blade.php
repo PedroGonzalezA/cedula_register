@@ -64,10 +64,17 @@
             </div>
         </div>-->
         @if(auth()->check())
-        <li>
-            <p class="text-xl">Welcome <b>{{ auth()->user()->name }}</b></p>
-            <a href="{{ route('login.destroy') }}">Log Out</a>
-        </li>
+        <div class="row">
+            <div class="col-6">
+                <a href="{{ route('inicio.index') }}" class="btn "  ><i class="zmdi zmdi-arrow-left"></i></a>
+            </div>
+            <div class="col-4">
+                <p class="text-xl">Bienvenido <b>{{ auth()->user()->name }}</b></p>
+            </div>
+            <div class="col-2 text-center">
+                <a href="{{ route('login.destroy') }}">Cerrar Sesion</a>
+            </div>
+        </div>
         <form method="POST" action="{{ route('home.store') }}">
             @csrf
             <div class="form-row">
@@ -269,7 +276,7 @@
                 @enderror
                 <div class="form-group col-md-3">
                     <label for="">Cargo:</label>
-                    <select class="form-control" name="id_cargo" id="id_cargo">
+                    <select class="form-control" name="id_cargo_ae" id="id_cargo">
                         <option value="1">Lic.</option>
                         <option value="2">Ing.</option>
                         <option value="3">Mtro.</option>
@@ -334,7 +341,7 @@
                 @enderror
                 <div class="form-group col-md-3">
                     <label for="">Cargo:</label>
-                    <select class="form-control" name="id_cargo" id="id_cargo">
+                    <select class="form-control" name="id_cargo_aa" id="id_cargo">
                         <option value="1">Lic.</option>
                         <option value="2">Ing.</option>
                         <option value="3">Mtro.</option>
