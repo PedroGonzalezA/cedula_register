@@ -16,13 +16,16 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class CedulaController extends Controller
-{
+{   
+    public function ver(){
+        return view('home');
+    }
     public function store(Request $request) {
         
         $request->validate([
             'ape_paterno' => 'required|max:40',
             'ape_materno' => 'required|max:40',
-            'nombres' => 'required|max:40',
+            'nombres' => 'required|max:100',
             'tel' => 'required|digits:10',
             'matricula' => 'required|max:40',
             'email_per' => 'required|email|max:40',
@@ -30,27 +33,27 @@ class CedulaController extends Controller
             'no_ss' => 'required|min:11|numeric',
             'direccion' => 'required|max:255',
 
-            'nombre_emp' => 'required|max:100',
+            'nombre_emp' => 'required|max:255',
             'giro' => 'required|max:40',
-            'direccion_emp' => 'required|max:40',
+            'direccion_emp' => 'required|max:255',
             'ape_paterno_rh' => 'required|max:40',
             'ape_materno_rh' => 'required|max:40',
-            'nombres_rh' => 'required|max:40',
-            'tel_lada' => 'nullable|min:3|numeric',
+            'nombres_rh' => 'required|max:100',
+            'tel_lada' => 'nullable|digits:3',
             'tel_num' => 'required|min:10|numeric',
-            'tel_ext' => 'nullable|min:3|numeric',
+            'tel_ext' => 'nullable|digits:3',
             'email_emp' => 'required|max:40',
 
             'ape_paterno_ae' => 'required|max:40',
             'ape_materno_ae' => 'required|max:40',
-            'nombres_ae' => 'required|max:40',
+            'nombres_ae' => 'required|max:100',
             'tel_lada_ae' => 'nullable|digits:3',
             'tel_num_ae' => 'required|digits:10',
             'email_ae' => 'required|max:40',
 
             'ape_paterno_aa' => 'required|max:40',
             'ape_materno_aa' => 'required|max:40',
-            'nombres_aa' => 'required|max:40',
+            'nombres_aa' => 'required|max:100',
             'tel_lada_aa' => 'nullable|digits:3',
             'tel_num_aa' => 'required|digits:10',
             'email_aa' => 'required|max:40',
@@ -92,7 +95,7 @@ class CedulaController extends Controller
             $tel_lada_ae        = $request->input('tel_lada_ae');
             $tel_num_ae         = $request->input('tel_num_ae');
             $email_ae           = $request->input('email_ae');
-            $cargo              = json_decode( $request->input('id_cargo') );
+            $cargo_ae              = json_decode( $request->input('id_cargo_ae') );
 
             $ape_paterno_aa     = $request->input('ape_paterno_aa');
             $ape_materno_aa     = $request->input('ape_materno_aa');
@@ -100,7 +103,7 @@ class CedulaController extends Controller
             $tel_lada_aa        = $request->input('tel_lada_aa');
             $tel_num_aa         = $request->input('tel_num_aa');
             $email_aa           = $request->input('email_aa');
-            $cargo              = json_decode( $request->input('id_cargo') );
+            $cargo_aa              = json_decode( $request->input('id_cargo_aa') );
 
             $nombre_pro         = $request->input('nombre_proyecto');
 
@@ -162,7 +165,7 @@ class CedulaController extends Controller
                         'tel_lada_ae'   => $tel_lada_ae,
                         'tel_num_ae'    => $tel_num_ae,
                         'email_ae'      => $email_ae,
-                        'id_cargo'      => $cargo,
+                        'id_cargo_ae'      => $cargo_ae,
                         //'ID_Alumno'     => $response_alumno['id']
                     );
                     
@@ -195,7 +198,7 @@ class CedulaController extends Controller
                         'tel_lada_aa'   => $tel_lada_aa,
                         'tel_num_aa'    => $tel_num_aa,
                         'email_aa'      => $email_aa,
-                        'id_cargo'      => $cargo,
+                        'id_cargo_aa'      => $cargo_aa,
                         //'ID_Alumno'     => $response_alumno['id']
                     );
 
@@ -304,8 +307,6 @@ class CedulaController extends Controller
                             'code'      => "200",
                         ),
                     );
-
-                    return view('registro_final');
                 } else {
                     $arrayResult = array(
                         'Response'  => array(
@@ -342,6 +343,6 @@ class CedulaController extends Controller
             );
         }
 
-        return json_encode( $arrayResult );
+        return redirect('registro_final');
     }
 }

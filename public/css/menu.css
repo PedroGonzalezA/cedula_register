@@ -1,3 +1,6 @@
+.lista{
+  border-radius: 1px;
+}
 .menu-res{
 
     display:none;
@@ -19,7 +22,7 @@
 nav{
   display: flex;
   margin:0 auto;
-  min-height: 12vh;
+  min-height: 7vh;
   align-items: stretch;
   background: rgb(255, 255, 255);
   width: auto;
@@ -44,8 +47,8 @@ padding: 0;
 float: left;
 line-height: 77px;
 position: relative;
- font-size: 12px; 
-  }
+font-size: 12px; 
+}
   
   
 
