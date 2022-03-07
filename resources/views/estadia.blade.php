@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -22,54 +23,61 @@
 <body>
     <!-- SideBar -->
 	@include('plantilla/alumno/sideBar')
+
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
 		<!-- NavBar -->
 		@include('plantilla/alumno/navBar')
 		<!-- Content page -->
-
+		<div class="container p-3">
+			<div class="page-header">
+			  <h2 class="text-titles">Formatos <small>(Estadías)</small></h2>
+			</div>
+		</div>
 		<div class="container p-2">
-        @csrf
-        @if(auth()->check())
-            @forelse ($datos['datosCedulaAlumno'] as $dato)
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <h1 class="text-5xl text-center pt-24">Se ha guardado el registro correctamente <b style="color: green;">{{ auth()->user()->name }}</b></h1>
-                </div>
-                <div class="col-4 ">
-                    @switch($dato->id_procesos)
-                        @case(1)
-                            <a href="{{ route('descarga_cd_f03.index') }}">
-                                <button type="button" class="btn btn-outline-info btnDes"><i class="zmdi zmdi-download"> Descargar</i></button>
-                            </a>
-                        @break
-                    
-                        @case(2)
-                            <a href="{{ route('descarga_cd_f03.index') }}">
-                                <button type="button" class="btn btn-outline-info btnDes"><i class="zmdi zmdi-download"> Descargar</i></button>
-                            </a>
-                        @break
+				<ol class="list-group">
+				
+		<!-- f03 -->
+					<li class="list-group-item d-flex justify-content-between align-items-start">
+						<div class="row lista">
+							<div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+								<div class="ms-2 me-auto">
+									<div class="fw-bold">F03</div>
+									Cedula de registro
+								</div>
+							</div>
+						
+								@forelse ($datos['datosCedula'] as $dato)
+										<div class="col-6 col-sm-6 col-md-5 col-lg-3 col-xl-2 p-0 colLlenar">
+											<form method="post" action="{{ route('eliminar_f03Estadia.index',[$dato->id_alumno,$dato->id_empresa,$dato->id_asesor_emp,$dato->id_asesor_aca,$dato->id_proyecto]) }}">
+												@csrf
+												<button type="submit" class="btn btn-outline-danger btnLlenar" >Eliminar</button>
+											</form>											
+										</div>
+										<div class="col-12 col-sm-12 col-md-3 col-lg-2 col-xl-1 p-1 colDescargar text-center">
+											<a href="{{ route('descarga_cd_estadia_f03.index') }}">
+												<button type="button" class="btn btn-outline-info btnDescargar"><i class="zmdi zmdi-download"> Descargar</i></button>
+											</a>
+										</div>
+										<div class="col-7 colArchivo">
+											
+										</div>											
+										
+								@empty
+										<div class="col-6 col-sm-6 col-md-2 col-lg-2 col-xl-2 p-0 colLlenar">
+											<a href="{{ route('home.index') }}">
+												<button type="button" class="btn btn-outline-dark btnLlenar" >Llenar Cedula de Registro</button>
+											</a>
+										</div>
+										<div class="col-7 colArchivo">
+											
+										</div>											
+										
+								@endforelse
+						</div>
+					</li>
 
-                        @case(3)
-                            <a href="{{ route('descarga_cd_estadia_f03.index') }}">
-                                <button type="button" class="btn btn-outline-info btnDes"><i class="zmdi zmdi-download"> Descargar</i></button>
-                            </a>
-                        @break
-                        @default
-                            Hay un fallo 
-                            <a href="{{ ('inicio.index') }}">
-                                <button type="button" class="btn btn-outline-info btnDes"><i class="zmdi zmdi-download"> Regrasar</i></button>
-                            </a>
-                    @endswitch      
-                    
-                </div>
-            </div>
-                                   
-            @empty
-                                         
-            @endforelse	
-        
-        @endif
+				</ol>
 				
 		</div>
 	</section>
@@ -88,3 +96,10 @@
 	</script>
 </body>
 </html>
+<style>
+	.id_d{
+		visibility: hidden;
+		display: none;
+		width:10px;
+	}
+</style>
